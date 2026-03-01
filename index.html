@@ -1,0 +1,3261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Project Brief Collector | KaynaeroTech</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Start Your Website Project</h1>
+            <p>Tell us about your project and we'll get back to you within 24 hours</p>
+        </div>
+        
+        <div class="form-card">
+            <!-- Progress Bar -->
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            
+            <!-- Step Indicator -->
+            <div class="step-indicator">
+                <span class="step active" id="step1-indicator">1. Category</span>
+                <span class="step" id="step2-indicator">2. Details</span>
+                <span class="step" id="step3-indicator">3. Files</span>
+                <span class="step" id="step4-indicator">4. Review</span>
+            </div>
+            
+            <!-- Step 1: Category Selection -->
+            <div class="form-section active" id="step1-form">
+                <h2 class="section-title">What type of website do you need?</h2>
+                
+                <div class="category-cards">
+                    <div class="category-card" onclick="selectCategory('hospital')" id="cat-hospital">
+                        <i class="fas fa-hospital"></i>
+                        <h3>Hospital</h3>
+                        <p>Medical facility, clinic</p>
+                    </div>
+                    
+                    <div class="category-card" onclick="selectCategory('school')" id="cat-school">
+                        <i class="fas fa-school"></i>
+                        <h3>School</h3>
+                        <p>Educational institution</p>
+                    </div>
+                    
+                    <div class="category-card" onclick="selectCategory('church')" id="cat-church">
+                        <i class="fas fa-church"></i>
+                        <h3>Church</h3>
+                        <p>Religious organization</p>
+                    </div>
+                    
+                    <div class="category-card" onclick="selectCategory('hotel')" id="cat-hotel">
+                        <i class="fas fa-hotel"></i>
+                        <h3>Hotel</h3>
+                        <p>Lodge, resort, Airbnb</p>
+                    </div>
+                    
+                    <div class="category-card" onclick="selectCategory('restaurant')" id="cat-restaurant">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Restaurant</h3>
+                        <p>Cafe, food business</p>
+                    </div>
+                    
+                    <div class="category-card" onclick="selectCategory('business')" id="cat-business">
+                        <i class="fas fa-building"></i>
+                        <h3>Business</h3>
+                        <p>Corporate, company</p>
+                    </div>
+                    
+                    <div class="category-card" onclick="selectCategory('ngo')" id="cat-ngo">
+                        <i class="fas fa-hands-helping"></i>
+                        <h3>NGO</h3>
+                        <p>Non-profit, foundation</p>
+                    </div>
+                    
+                    <div class="category-card" onclick="selectCategory('portfolio')" id="cat-portfolio">
+                        <i class="fas fa-paint-brush"></i>
+                        <h3>Portfolio</h3>
+                        <p>Artist, photographer</p>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="nextStep()" id="nextToDetails" disabled>Next: Details →</button>
+                </div>
+            </div>
+            
+            <!-- Step 2: Details Form -->
+            <div class="form-section" id="step2-form">
+                <h2 class="section-title" id="detailsTitle">Enter Your Details</h2>
+                
+                <!-- SCHOOL FORM (Complete) -->
+                <div id="schoolFields" style="display: none;">
+                    <!-- Basic Information -->
+                    <div class="section-divider"><span>🏫 Basic School Information</span></div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="required">Official School Name</label>
+                            <input type="text" id="schoolName" placeholder="e.g., Kitengela International School">
+                        </div>
+                        <div class="form-group">
+                            <label class="required">School Registration Number</label>
+                            <input type="text" id="schoolRegNumber" placeholder="e.g., MOE/REG/2020/123">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="required">School Type</label>
+                            <select id="schoolType">
+                                <option value="">-- Select Type --</option>
+                                <option value="preschool">Pre-School / Kindergarten</option>
+                                <option value="primary">Primary School</option>
+                                <option value="secondary">Secondary School</option>
+                                <option value="highschool">High School</option>
+                                <option value="college">College</option>
+                                <option value="university">University</option>
+                                <option value="vocational">Vocational/Training Institute</option>
+                                <option value="international">International School</option>
+                                <option value="special">Special Needs School</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>School Category</label>
+                            <select id="schoolCategory">
+                                <option value="">-- Select Category --</option>
+                                <option value="public">Public (Government)</option>
+                                <option value="private">Private</option>
+                                <option value="religious">Religious/Faith Based</option>
+                                <option value="international">International</option>
+                                <option value="montessori">Montessori</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Year Established</label>
+                            <input type="number" id="schoolYear" placeholder="e.g., 1995" min="1800" max="2024">
+                        </div>
+                        <div class="form-group">
+                            <label>School Motto</label>
+                            <input type="text" id="schoolMotto" placeholder="e.g., Striving for Excellence">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>School Vision</label>
+                            <textarea id="schoolVision" rows="2" placeholder="What is your school's vision statement?"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>School Mission</label>
+                            <textarea id="schoolMission" rows="2" placeholder="What is your school's mission statement?"></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Information -->
+                    <div class="section-divider"><span>📞 Contact Information</span></div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="required">Principal/Head Teacher Name</label>
+                            <input type="text" id="schoolPrincipal" placeholder="Full name of principal">
+                        </div>
+                        <div class="form-group">
+                            <label>Principal's Title</label>
+                            <input type="text" id="schoolPrincipalTitle" placeholder="e.g., Dr., Prof., Mr., Ms.">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="required">Principal's Phone (Direct)</label>
+                            <input type="tel" id="schoolPrincipalPhone" placeholder="+254 700 000 000">
+                        </div>
+                        <div class="form-group">
+                            <label>Principal's Email</label>
+                            <input type="email" id="schoolPrincipalEmail" placeholder="principal@school.ac.ke">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="required">School Office Phone</label>
+                            <input type="tel" id="schoolPhone" placeholder="+254 700 000 000">
+                        </div>
+                        <div class="form-group">
+                            <label class="required">School Email</label>
+                            <input type="email" id="schoolEmail" placeholder="info@school.ac.ke">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Alternative Phone</label>
+                            <input type="tel" id="schoolPhone2" placeholder="+254 700 000 000">
+                        </div>
+                        <div class="form-group">
+                            <label>WhatsApp Number</label>
+                            <input type="tel" id="schoolWhatsApp" placeholder="+254 700 000 000">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Admissions Office Phone</label>
+                            <input type="tel" id="schoolAdmissionsPhone" placeholder="+254 700 000 000">
+                        </div>
+                        <div class="form-group">
+                            <label>Admissions Email</label>
+                            <input type="email" id="schoolAdmissionsEmail" placeholder="admissions@school.ac.ke">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="required">Physical Address</label>
+                        <input type="text" id="schoolAddress" placeholder="Street, Building, Landmark">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Town/City</label>
+                            <input type="text" id="schoolCity" placeholder="e.g., Kitengela">
+                        </div>
+                        <div class="form-group">
+                            <label>County/Region</label>
+                            <input type="text" id="schoolCounty" placeholder="e.g., Kajiado">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Postal Address</label>
+                            <input type="text" id="schoolPostal" placeholder="P.O. Box 123-00100">
+                        </div>
+                        <div class="form-group">
+                            <label>Google Maps Link</label>
+                            <input type="url" id="schoolMaps" placeholder="https://goo.gl/maps/...">
+                        </div>
+                    </div>
+                    
+                    <!-- Academic Information -->
+                    <div class="section-divider"><span>📚 Academic Information</span></div>
+                    
+                    <div class="form-group">
+                        <label class="required">Levels/Classes Offered</label>
+                        <select id="schoolLevels" multiple size="4" style="height: auto;">
+                            <option value="playgroup">Playgroup (Ages 2-3)</option>
+                            <option value="preprimary">Pre-Primary (PP1-PP2)</option>
+                            <option value="lowerprimary">Lower Primary (Grade 1-3)</option>
+                            <option value="upperprimary">Upper Primary (Grade 4-6)</option>
+                            <option value="jss">Junior Secondary (Grade 7-9)</option>
+                            <option value="sss">Senior Secondary (Grade 10-12)</option>
+                            <option value="form1-4">Form 1-4 (KCSE)</option>
+                            <option value="form5-6">Form 5-6 (A-Levels)</option>
+                            <option value="certificate">Certificate Programs</option>
+                            <option value="diploma">Diploma Programs</option>
+                            <option value="degree">Degree Programs</option>
+                            <option value="masters">Masters Programs</option>
+                            <option value="phd">PhD Programs</option>
+                        </select>
+                        <small style="color: var(--gray);">Hold Ctrl/Cmd to select multiple</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Curriculum Offered</label>
+                        <select id="schoolCurriculum" multiple size="3">
+                            <option value="kcse">Kenya (KCSE/CBC)</option>
+                            <option value="british">British (IGCSE/A-Levels)</option>
+                            <option value="american">American</option>
+                            <option value="ib">International Baccalaureate (IB)</option>
+                            <option value="french">French</option>
+                            <option value="german">German</option>
+                            <option value="montessori">Montessori</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Total Student Enrollment</label>
+                            <input type="number" id="schoolStudents" placeholder="e.g., 500">
+                        </div>
+                        <div class="form-group">
+                            <label>Total Teaching Staff</label>
+                            <input type="number" id="schoolTeachers" placeholder="e.g., 25">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Student-Teacher Ratio</label>
+                            <input type="text" id="schoolRatio" placeholder="e.g., 20:1">
+                        </div>
+                        <div class="form-group">
+                            <label>Average Class Size</label>
+                            <input type="number" id="schoolClassSize" placeholder="e.g., 25">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Subjects/Programs Offered</label>
+                        <textarea id="schoolSubjects" rows="3" placeholder="List all subjects, majors, or programs offered..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Notable Achievements</label>
+                        <textarea id="schoolAchievements" rows="3" placeholder="e.g., KCSE mean score, awards, recognitions..."></textarea>
+                    </div>
+                    
+                    <!-- Facilities & Infrastructure -->
+                    <div class="section-divider"><span>🏛️ Facilities & Infrastructure</span></div>
+                    
+                    <div class="form-group">
+                        <label>Available Facilities</label>
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;">
+                            <label class="checkbox-label"><input type="checkbox" value="library"> Library</label>
+                            <label class="checkbox-label"><input type="checkbox" value="lab"> Science Labs</label>
+                            <label class="checkbox-label"><input type="checkbox" value="computer"> Computer Lab</label>
+                            <label class="checkbox-label"><input type="checkbox" value="sports"> Sports Field</label>
+                            <label class="checkbox-label"><input type="checkbox" value="pool"> Swimming Pool</label>
+                            <label class="checkbox-label"><input type="checkbox" value="hall"> Assembly Hall</label>
+                            <label class="checkbox-label"><input type="checkbox" value="dining"> Dining Hall</label>
+                            <label class="checkbox-label"><input type="checkbox" value="dorm"> Dormitories</label>
+                            <label class="checkbox-label"><input type="checkbox" value="clinic"> School Clinic</label>
+                            <label class="checkbox-label"><input type="checkbox" value="bus"> School Bus</label>
+                            <label class="checkbox-label"><input type="checkbox" value="chapel"> Chapel/Mosque</label>
+                            <label class="checkbox-label"><input type="checkbox" value="playground"> Playground</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Number of Classrooms</label>
+                            <input type="number" id="schoolClassrooms" placeholder="e.g., 30">
+                        </div>
+                        <div class="form-group">
+                            <label>Number of Laboratories</label>
+                            <input type="number" id="schoolLabs" placeholder="e.g., 3">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Total Land Area (acres)</label>
+                            <input type="text" id="schoolLand" placeholder="e.g., 5 acres">
+                        </div>
+                        <div class="form-group">
+                            <label>Built-up Area (sq meters)</label>
+                            <input type="text" id="schoolArea" placeholder="e.g., 2000 sqm">
+                        </div>
+                    </div>
+                    
+                    <!-- Fees & Admissions -->
+                    <div class="section-divider"><span>💰 Fees & Admissions</span></div>
+                    
+                    <div class="form-group">
+                        <label>Annual School Fees (Range)</label>
+                        <div class="form-row">
+                            <input type="text" id="schoolFeesMin" placeholder="Minimum e.g., 50,000">
+                            <input type="text" id="schoolFeesMax" placeholder="Maximum e.g., 200,000">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Payment Methods Accepted</label>
+                        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                            <label class="checkbox-label"><input type="checkbox" value="cash"> Cash</label>
+                            <label class="checkbox-label"><input type="checkbox" value="mpesa"> M-Pesa</label>
+                            <label class="checkbox-label"><input type="checkbox" value="bank"> Bank Transfer</label>
+                            <label class="checkbox-label"><input type="checkbox" value="card"> Credit/Debit Card</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>M-Pesa Paybill/Till Number (if applicable)</label>
+                        <input type="text" id="schoolPaybill" placeholder="e.g., 123456">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Bank Account Details (for payments)</label>
+                        <textarea id="schoolBank" rows="2" placeholder="Bank Name, Account Name, Account Number, Branch"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Admission Requirements</label>
+                        <textarea id="schoolRequirements" rows="3" placeholder="List all documents and requirements for admission..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Admission Period</label>
+                        <input type="text" id="schoolAdmissionPeriod" placeholder="e.g., January and September intake">
+                    </div>
+                    
+                    <!-- Extracurricular -->
+                    <div class="section-divider"><span>⚽ Extracurricular Activities</span></div>
+                    
+                    <div class="form-group">
+                        <label>Sports Offered</label>
+                        <textarea id="schoolSports" rows="2" placeholder="e.g., Football, Basketball, Swimming, Athletics..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Clubs & Societies</label>
+                        <textarea id="schoolClubs" rows="2" placeholder="e.g., Debate Club, Science Club, Drama Society..."></textarea>
+                    </div>
+                    
+                    <!-- Social Media -->
+                    <div class="section-divider"><span>🌐 Online Presence</span></div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Website URL</label>
+                            <input type="url" id="schoolWebsite" placeholder="https://www.school.ac.ke">
+                        </div>
+                        <div class="form-group">
+                            <label>Facebook Page</label>
+                            <input type="url" id="schoolFacebook" placeholder="https://facebook.com/...">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Twitter/X Handle</label>
+                            <input type="text" id="schoolTwitter" placeholder="@schoolhandle">
+                        </div>
+                        <div class="form-group">
+                            <label>Instagram Page</label>
+                            <input type="url" id="schoolInstagram" placeholder="https://instagram.com/...">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>YouTube Channel</label>
+                            <input type="url" id="schoolYoutube" placeholder="https://youtube.com/...">
+                        </div>
+                        <div class="form-group">
+                            <label>LinkedIn Page</label>
+                            <input type="url" id="schoolLinkedin" placeholder="https://linkedin.com/...">
+                        </div>
+                    </div>
+                    
+                    <!-- School Leadership -->
+                    <div class="section-divider"><span>👥 School Leadership</span></div>
+                    
+                    <div class="form-group">
+                        <label>Deputy Principal(s) / Vice Principal(s)</label>
+                        <textarea id="schoolDeputies" rows="2" placeholder="Names and titles of deputy principals..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Heads of Departments (HODs)</label>
+                        <textarea id="schoolHODs" rows="3" placeholder="e.g., Science: Mr. John, Math: Ms. Jane..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Board of Governors / PTA Chairperson</label>
+                        <input type="text" id="schoolBOG" placeholder="Name and contact if available">
+                    </div>
+                    
+                    <!-- Accreditation -->
+                    <div class="section-divider"><span>✅ Accreditation & Memberships</span></div>
+                    
+                    <div class="form-group">
+                        <label>Accreditations & Certifications</label>
+                        <textarea id="schoolAccreditations" rows="3" placeholder="e.g., Ministry of Education registered, International Baccalaureate accredited, ISO certified..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Memberships & Affiliations</label>
+                        <textarea id="schoolMemberships" rows="2" placeholder="e.g., Kenya Private Schools Association, International Schools Association..."></textarea>
+                    </div>
+                    
+                    <!-- Additional Information -->
+                    <div class="section-divider"><span>📝 Additional Information</span></div>
+                    
+                    <div class="form-group">
+                        <label>Brief History of School</label>
+                        <textarea id="schoolHistory" rows="3" placeholder="When and why was the school founded?"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Unique Selling Points (Why choose your school?)</label>
+                        <textarea id="schoolUSP" rows="3" placeholder="What makes your school special?"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Upcoming Events / Open Days</label>
+                        <textarea id="schoolEvents" rows="2" placeholder="e.g., Open Day - March 15th, 2024"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Any Other Information</label>
+                        <textarea id="schoolOther" rows="3" placeholder="Anything else we should know?"></textarea>
+                    </div>
+                </div>
+                
+                <!-- HOSPITAL FORM - Complete -->
+<div id="hospitalFields" style="display: none;">
+    <!-- Basic Information -->
+    <div class="section-divider"><span>🏥 Basic Hospital Information</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label class="required">Official Hospital Name</label>
+            <input type="text" id="hospitalName" placeholder="e.g., MHUDUMU Hospital">
+        </div>
+        <div class="form-group">
+            <label class="required">Hospital Registration Number</label>
+            <input type="text" id="hospitalRegNumber" placeholder="e.g., HOSP/REG/2020/001">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Year Established</label>
+            <input type="number" id="hospitalYear" placeholder="e.g., 2020" min="1800" max="2024">
+        </div>
+        <div class="form-group">
+            <label>Hospital Tagline/Motto</label>
+            <input type="text" id="hospitalTagline" placeholder="e.g., Your Health, Our Sacred Duty">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Hospital Vision</label>
+            <textarea id="hospitalVision" rows="2" placeholder="What is your hospital's vision statement?"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Hospital Mission</label>
+            <textarea id="hospitalMission" rows="2" placeholder="What is your hospital's mission statement?"></textarea>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Brief Description / History</label>
+        <textarea id="hospitalHistory" rows="3" placeholder="Tell us about your hospital's story..."></textarea>
+    </div>
+    
+    <!-- Contact Information -->
+    <div class="section-divider"><span>📞 Contact Information</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label class="required">Hospital Administrator/CEO Name</label>
+            <input type="text" id="hospitalCEO" placeholder="Full name of administrator">
+        </div>
+        <div class="form-group">
+            <label>CEO's Title</label>
+            <input type="text" id="hospitalCEOTitle" placeholder="e.g., Dr., Prof., Mr., Ms.">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label class="required">Main Reception Phone</label>
+            <input type="tel" id="hospitalPhone" placeholder="+254 700 000 000">
+        </div>
+        <div class="form-group">
+            <label class="required">Main Email</label>
+            <input type="email" id="hospitalEmail" placeholder="info@hospital.co.ke">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label class="required">Emergency Phone (24/7)</label>
+            <input type="tel" id="hospitalEmergencyPhone" placeholder="+254 722 000 000">
+        </div>
+        <div class="form-group">
+            <label>Ambulance Phone</label>
+            <input type="tel" id="hospitalAmbulancePhone" placeholder="+254 733 000 000">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>WhatsApp Number</label>
+            <input type="tel" id="hospitalWhatsApp" placeholder="+254 712 345 678">
+        </div>
+        <div class="form-group">
+            <label>Alternative Phone</label>
+            <input type="tel" id="hospitalPhone2" placeholder="+254 700 000 000">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="required">Physical Address</label>
+        <input type="text" id="hospitalAddress" placeholder="Street, Building, Landmark">
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Town/City</label>
+            <input type="text" id="hospitalCity" placeholder="e.g., Kitengela">
+        </div>
+        <div class="form-group">
+            <label>County/Region</label>
+            <input type="text" id="hospitalCounty" placeholder="e.g., Kajiado">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Postal Address</label>
+            <input type="text" id="hospitalPostal" placeholder="P.O. Box 123-00100">
+        </div>
+        <div class="form-group">
+            <label>Google Maps Link</label>
+            <input type="url" id="hospitalMaps" placeholder="https://goo.gl/maps/...">
+        </div>
+    </div>
+    
+    <!-- Operating Hours -->
+    <div class="section-divider"><span>🕒 Operating Hours</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Monday - Friday</label>
+            <input type="text" id="hospitalWeekday" placeholder="e.g., 8:00am - 8:00pm">
+        </div>
+        <div class="form-group">
+            <label>Saturday</label>
+            <input type="text" id="hospitalSaturday" placeholder="e.g., 8:00am - 8:00pm">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Sunday</label>
+            <input type="text" id="hospitalSunday" placeholder="e.g., 10:00am - 4:00pm">
+        </div>
+        <div class="form-group">
+            <label>Emergency Services</label>
+            <input type="text" id="hospitalEmergencyHours" placeholder="e.g., 24/7 - 365 days">
+        </div>
+    </div>
+    
+    <!-- Branches -->
+    <div class="section-divider"><span>🏛️ Branches / Locations</span></div>
+    
+    <div class="form-group">
+        <label>Number of Branches</label>
+        <input type="number" id="hospitalBranchCount" placeholder="e.g., 3" min="1" max="20">
+    </div>
+    
+    <div class="form-group">
+        <label>Branch Details (one per line)</label>
+        <textarea id="hospitalBranches" rows="4" placeholder="e.g., Main Branch: Kitengela Town, Opposite Police Station&#10;Satellite: Athi River, Mombasa Road&#10;Outreach: Isinya, Near Primary School"></textarea>
+    </div>
+    
+    <!-- Departments & Services -->
+    <div class="section-divider"><span>🏥 Departments & Services</span></div>
+    
+    <div class="form-group">
+        <label>Departments Available</label>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;">
+            <label class="checkbox-label"><input type="checkbox" value="emergency"> Emergency</label>
+            <label class="checkbox-label"><input type="checkbox" value="outpatient"> Outpatient</label>
+            <label class="checkbox-label"><input type="checkbox" value="inpatient"> Inpatient</label>
+            <label class="checkbox-label"><input type="checkbox" value="maternity"> Maternity</label>
+            <label class="checkbox-label"><input type="checkbox" value="pediatrics"> Pediatrics</label>
+            <label class="checkbox-label"><input type="checkbox" value="cardiology"> Cardiology</label>
+            <label class="checkbox-label"><input type="checkbox" value="radiology"> Radiology</label>
+            <label class="checkbox-label"><input type="checkbox" value="laboratory"> Laboratory</label>
+            <label class="checkbox-label"><input type="checkbox" value="pharmacy"> Pharmacy</label>
+            <label class="checkbox-label"><input type="checkbox" value="dental"> Dental</label>
+            <label class="checkbox-label"><input type="checkbox" value="orthopedic"> Orthopedic</label>
+            <label class="checkbox-label"><input type="checkbox" value="ent"> ENT</label>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Other Departments (comma separated)</label>
+        <input type="text" id="hospitalOtherDepartments" placeholder="e.g., Dermatology, Urology, Psychiatry">
+    </div>
+    
+    <div class="form-group">
+        <label>Key Services Offered</label>
+        <textarea id="hospitalServices" rows="3" placeholder="List the main services your hospital provides..."></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Specialized Clinics</label>
+        <textarea id="hospitalSpecialized" rows="3" placeholder="e.g., Diabetes Clinic, Antenatal Clinic, Hypertension Clinic..."></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Equipment & Technology</label>
+        <textarea id="hospitalEquipment" rows="3" placeholder="e.g., MRI, CT Scan, Digital X-Ray, Ultrasound, Ventilators..."></textarea>
+    </div>
+    
+    <!-- Doctors & Staff -->
+    <div class="section-divider"><span>👨‍⚕️ Doctors & Staff</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Total Number of Doctors</label>
+            <input type="number" id="hospitalDoctorCount" placeholder="e.g., 25">
+        </div>
+        <div class="form-group">
+            <label>Total Number of Nurses</label>
+            <input type="number" id="hospitalNurseCount" placeholder="e.g., 50">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Key Specialists (Name, Specialty, Qualifications)</label>
+        <textarea id="hospitalSpecialists" rows="4" placeholder="e.g., Dr. Jane Mwende - Physician - MBChB, MMed (Internal Medicine)&#10;Dr. Peter Kipchoge - Cardiologist - MBChB, MMed (Cardiology)&#10;Dr. Sarah Wanjiku - OB/GYN - MBChB, MMed (OB/GYN)"></textarea>
+    </div>
+    
+    <!-- Insurance & Payments -->
+    <div class="section-divider"><span>💰 Insurance & Payments</span></div>
+    
+    <div class="form-group">
+        <label>Insurance Partners</label>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;">
+            <label class="checkbox-label"><input type="checkbox" value="nhif"> NHIF</label>
+            <label class="checkbox-label"><input type="checkbox" value="jubilee"> Jubilee</label>
+            <label class="checkbox-label"><input type="checkbox" value="aar"> AAR</label>
+            <label class="checkbox-label"><input type="checkbox" value="britam"> Britam</label>
+            <label class="checkbox-label"><input type="checkbox" value="cic"> CIC</label>
+            <label class="checkbox-label"><input type="checkbox" value="resolution"> Resolution</label>
+            <label class="checkbox-label"><input type="checkbox" value="madison"> Madison</label>
+            <label class="checkbox-label"><input type="checkbox" value="apa"> APA</label>
+            <label class="checkbox-label"><input type="checkbox" value="other"> Other</label>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Other Insurance Partners (comma separated)</label>
+        <input type="text" id="hospitalOtherInsurance" placeholder="e.g., Sanlam, GA Insurance">
+    </div>
+    
+    <div class="form-group">
+        <label>NHIF Accreditation Number</label>
+        <input type="text" id="hospitalNHIF" placeholder="e.g., NHIF/HOSP/2020/456">
+    </div>
+    
+    <div class="form-group">
+        <label>Payment Methods Accepted</label>
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+            <label class="checkbox-label"><input type="checkbox" value="cash"> Cash</label>
+            <label class="checkbox-label"><input type="checkbox" value="mpesa"> M-Pesa</label>
+            <label class="checkbox-label"><input type="checkbox" value="card"> Visa/Mastercard</label>
+            <label class="checkbox-label"><input type="checkbox" value="bank"> Bank Transfer</label>
+            <label class="checkbox-label"><input type="checkbox" value="insurance"> Insurance</label>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>M-Pesa Paybill/Till Number</label>
+        <input type="text" id="hospitalPaybill" placeholder="e.g., 123456">
+    </div>
+    
+    <div class="form-group">
+        <label>Bank Account Details</label>
+        <textarea id="hospitalBank" rows="2" placeholder="Bank Name, Account Name, Account Number, Branch"></textarea>
+    </div>
+    
+    <!-- Statistics -->
+    <div class="section-divider"><span>📊 Hospital Statistics</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Total Patients Served (annual)</label>
+            <input type="text" id="hospitalPatients" placeholder="e.g., 15,000+">
+        </div>
+        <div class="form-group">
+            <label>Number of Beds</label>
+            <input type="text" id="hospitalBeds" placeholder="e.g., 100+">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Years in Operation</label>
+            <input type="text" id="hospitalYears" placeholder="e.g., 5+">
+        </div>
+        <div class="form-group">
+            <label>Daily Patient Average</label>
+            <input type="text" id="hospitalDaily" placeholder="e.g., 200+">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Key Achievements / Awards</label>
+        <textarea id="hospitalAwards" rows="3" placeholder="e.g., Best Hospital in Kitengela 2023, ISO Certified..."></textarea>
+    </div>
+    
+    <!-- Facilities -->
+    <div class="section-divider"><span>🏛️ Facilities & Infrastructure</span></div>
+    
+    <div class="form-group">
+        <label>Facilities Available</label>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;">
+            <label class="checkbox-label"><input type="checkbox" value="cafe"> Cafe/Canteen</label>
+            <label class="checkbox-label"><input type="checkbox" value="parking"> Ample Parking</label>
+            <label class="checkbox-label"><input type="checkbox" value="pharmacy"> In-house Pharmacy</label>
+            <label class="checkbox-label"><input type="checkbox" value="lab"> Laboratory</label>
+            <label class="checkbox-label"><input type="checkbox" value="radiology"> Radiology</label>
+            <label class="checkbox-label"><input type="checkbox" value="theatre"> Operation Theatre</label>
+            <label class="checkbox-label"><input type="checkbox" value="icu"> ICU</label>
+            <label class="checkbox-label"><input type="checkbox" value="nicu"> NICU</label>
+            <label class="checkbox-label"><input type="checkbox" value="ambulance"> Ambulance Services</label>
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Total Land Area</label>
+            <input type="text" id="hospitalLand" placeholder="e.g., 2 acres">
+        </div>
+        <div class="form-group">
+            <label>Built-up Area</label>
+            <input type="text" id="hospitalArea" placeholder="e.g., 5000 sqm">
+        </div>
+    </div>
+    
+    <!-- Social Media -->
+    <div class="section-divider"><span>🌐 Online Presence</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Website URL</label>
+            <input type="url" id="hospitalWebsite" placeholder="https://www.hospital.co.ke">
+        </div>
+        <div class="form-group">
+            <label>Facebook Page</label>
+            <input type="url" id="hospitalFacebook" placeholder="https://facebook.com/...">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Twitter/X Handle</label>
+            <input type="text" id="hospitalTwitter" placeholder="@hospitalhandle">
+        </div>
+        <div class="form-group">
+            <label>Instagram Page</label>
+            <input type="url" id="hospitalInstagram" placeholder="https://instagram.com/...">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>LinkedIn Page</label>
+            <input type="url" id="hospitalLinkedin" placeholder="https://linkedin.com/...">
+        </div>
+        <div class="form-group">
+            <label>YouTube Channel</label>
+            <input type="url" id="hospitalYoutube" placeholder="https://youtube.com/...">
+        </div>
+    </div>
+    
+    <!-- Accreditation -->
+    <div class="section-divider"><span>✅ Accreditation & Compliance</span></div>
+    
+    <div class="form-group">
+        <label>Accreditations & Certifications</label>
+        <textarea id="hospitalAccreditations" rows="3" placeholder="e.g., KMPDC Registered, ISO 9001:2015, NHIF Accredited..."></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Registration/License Numbers</label>
+        <textarea id="hospitalLicenses" rows="2" placeholder="e.g., KMPDC: HOSP/2020/789, NHIF: 123456..."></textarea>
+    </div>
+    
+    <!-- Testimonials -->
+    <div class="section-divider"><span>⭐ Patient Testimonials</span></div>
+    
+    <div class="form-group">
+        <label>Sample Testimonials (one per line)</label>
+        <textarea id="hospitalTestimonials" rows="4" placeholder="e.g., Mary A. - 'Excellent maternity care, the nurses were wonderful!'&#10;John O. - 'Quick emergency response, very professional staff.'"></textarea>
+    </div>
+    
+    <!-- Additional Information -->
+    <div class="section-divider"><span>📝 Additional Information</span></div>
+    
+    <div class="form-group">
+        <label>Unique Selling Points (Why choose your hospital?)</label>
+        <textarea id="hospitalUSP" rows="3" placeholder="What makes your hospital special?"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Upcoming Events / Health Camps</label>
+        <textarea id="hospitalEvents" rows="2" placeholder="e.g., Free Medical Camp - March 15th, 2024"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Any Other Information</label>
+        <textarea id="hospitalOther" rows="3" placeholder="Anything else we should know?"></textarea>
+    </div>
+</div>
+                
+                <!-- CHURCH FORM - Complete -->
+<div id="churchFields" style="display: none;">
+    <!-- Basic Information -->
+    <div class="section-divider"><span>⛪ Basic Church Information</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label class="required">Official Church Name</label>
+            <input type="text" id="churchName" placeholder="e.g., Kitengela Fellowship Church">
+        </div>
+        <div class="form-group">
+            <label>Denomination</label>
+            <input type="text" id="churchDenomination" placeholder="e.g., Baptist, Catholic, Pentecostal">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Year Established</label>
+            <input type="number" id="churchYear" placeholder="e.g., 1995" min="1800" max="2024">
+        </div>
+        <div class="form-group">
+            <label>Church Motto</label>
+            <input type="text" id="churchMotto" placeholder="e.g., Winning souls for Jesus">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Church Vision</label>
+            <textarea id="churchVision" rows="2" placeholder="What is your church's vision?"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Church Mission</label>
+            <textarea id="churchMission" rows="2" placeholder="What is your church's mission?"></textarea>
+        </div>
+    </div>
+    
+    <!-- Leadership -->
+    <div class="section-divider"><span>👔 Church Leadership</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label class="required">Senior Pastor Name</label>
+            <input type="text" id="churchPastor" placeholder="Full name of senior pastor">
+        </div>
+        <div class="form-group">
+            <label>Pastor's Title</label>
+            <input type="text" id="churchPastorTitle" placeholder="e.g., Rev., Dr., Pastor">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Pastor's Phone</label>
+            <input type="tel" id="churchPastorPhone" placeholder="+254 700 000 000">
+        </div>
+        <div class="form-group">
+            <label>Pastor's Email</label>
+            <input type="email" id="churchPastorEmail" placeholder="pastor@church.org">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Other Church Leaders</label>
+        <textarea id="churchLeaders" rows="3" placeholder="e.g., Associate Pastor: John Doe&#10;Youth Pastor: Jane Smith&#10;Worship Leader: Peter Kamau"></textarea>
+    </div>
+    
+    <!-- Contact Information -->
+    <div class="section-divider"><span>📞 Contact Information</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label class="required">Church Office Phone</label>
+            <input type="tel" id="churchPhone" placeholder="+254 700 000 000">
+        </div>
+        <div class="form-group">
+            <label class="required">Church Email</label>
+            <input type="email" id="churchEmail" placeholder="info@church.org">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>WhatsApp Number</label>
+            <input type="tel" id="churchWhatsApp" placeholder="+254 700 000 000">
+        </div>
+        <div class="form-group">
+            <label>Alternative Phone</label>
+            <input type="tel" id="churchPhone2" placeholder="+254 700 000 000">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="required">Physical Address</label>
+        <input type="text" id="churchAddress" placeholder="Street, Building, Landmark">
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Town/City</label>
+            <input type="text" id="churchCity" placeholder="e.g., Kitengela">
+        </div>
+        <div class="form-group">
+            <label>County/Region</label>
+            <input type="text" id="churchCounty" placeholder="e.g., Kajiado">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Postal Address</label>
+            <input type="text" id="churchPostal" placeholder="P.O. Box 123-00100">
+        </div>
+        <div class="form-group">
+            <label>Google Maps Link</label>
+            <input type="url" id="churchMaps" placeholder="https://goo.gl/maps/...">
+        </div>
+    </div>
+    
+    <!-- Service Times -->
+    <div class="section-divider"><span>🕒 Service Times</span></div>
+    
+    <div class="form-group">
+        <label>Sunday Services</label>
+        <textarea id="churchSundayServices" rows="3" placeholder="e.g., First Service: 7:00am - 9:00am&#10;Second Service: 9:30am - 11:30am&#10;Evening Service: 5:00pm - 7:00pm"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Midweek Services</label>
+        <textarea id="churchWeekdayServices" rows="3" placeholder="e.g., Wednesday: 6:00pm - 8:00pm&#10;Friday: 6:00pm - 8:00pm"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Other Meetings</label>
+        <textarea id="churchOtherMeetings" rows="3" placeholder="e.g., Prayer Meeting: Tuesday 10am&#10;Bible Study: Thursday 6pm"></textarea>
+    </div>
+    
+    <!-- Ministries -->
+    <div class="section-divider"><span>🙏 Ministries & Departments</span></div>
+    
+    <div class="form-group">
+        <label>Active Ministries</label>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;">
+            <label class="checkbox-label"><input type="checkbox" value="children"> Children's Ministry</label>
+            <label class="checkbox-label"><input type="checkbox" value="youth"> Youth Ministry</label>
+            <label class="checkbox-label"><input type="checkbox" value="men"> Men's Fellowship</label>
+            <label class="checkbox-label"><input type="checkbox" value="women"> Women's Fellowship</label>
+            <label class="checkbox-label"><input type="checkbox" value="worship"> Worship Team</label>
+            <label class="checkbox-label"><input type="checkbox" value="ushers"> Ushers/Protocol</label>
+            <label class="checkbox-label"><input type="checkbox" value="outreach"> Outreach/Missions</label>
+            <label class="checkbox-label"><input type="checkbox" value="hospitality"> Hospitality</label>
+            <label class="checkbox-label"><input type="checkbox" value="media"> Media/Technical</label>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Other Ministries (comma separated)</label>
+        <input type="text" id="churchOtherMinistries" placeholder="e.g., Couples Ministry, Singles Ministry">
+    </div>
+    
+    <div class="form-group">
+        <label>Ministry Leaders</label>
+        <textarea id="churchMinistryLeaders" rows="4" placeholder="e.g., Youth: Bro. James Otieno&#10;Women: Sis. Mary Wanjiku&#10;Worship: Bro. Peter Kipchoge"></textarea>
+    </div>
+    
+    <!-- Events -->
+    <div class="section-divider"><span>📅 Events & Programs</span></div>
+    
+    <div class="form-group">
+        <label>Annual Events</label>
+        <textarea id="churchAnnualEvents" rows="3" placeholder="e.g., Crusade: July 20-25&#10;Conference: September 10-12&#10;Thanksgiving: December 31"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Upcoming Special Events</label>
+        <textarea id="churchUpcomingEvents" rows="3" placeholder="e.g., Youth Conference - March 15-17&#10;Mothers' Day Celebration - May 12"></textarea>
+    </div>
+    
+    <!-- Giving & Finance -->
+    <div class="section-divider"><span>💰 Giving & Offerings</span></div>
+    
+    <div class="form-group">
+        <label>Giving Methods</label>
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+            <label class="checkbox-label"><input type="checkbox" value="cash"> Cash Offerings</label>
+            <label class="checkbox-label"><input type="checkbox" value="mpesa"> M-Pesa</label>
+            <label class="checkbox-label"><input type="checkbox" value="bank"> Bank Transfer</label>
+            <label class="checkbox-label"><input type="checkbox" value="paypal"> PayPal</label>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>M-Pesa Paybill/Till Number</label>
+        <input type="text" id="churchPaybill" placeholder="e.g., 123456">
+    </div>
+    
+    <div class="form-group">
+        <label>Bank Account Details</label>
+        <textarea id="churchBank" rows="2" placeholder="Bank Name, Account Name, Account Number, Branch"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Online Giving Link</label>
+        <input type="url" id="churchGivingLink" placeholder="https://...">
+    </div>
+    
+    <!-- Statistics -->
+    <div class="section-divider"><span>📊 Church Statistics</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Average Sunday Attendance</label>
+            <input type="text" id="churchAttendance" placeholder="e.g., 500">
+        </div>
+        <div class="form-group">
+            <label>Number of Members</label>
+            <input type="text" id="churchMembers" placeholder="e.g., 2000">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Number of Cells/Groups</label>
+            <input type="text" id="churchCells" placeholder="e.g., 25">
+        </div>
+        <div class="form-group">
+            <label>Number of Pastors/Clergy</label>
+            <input type="text" id="churchPastors" placeholder="e.g., 5">
+        </div>
+    </div>
+    
+    <!-- Facilities -->
+    <div class="section-divider"><span>🏛️ Church Facilities</span></div>
+    
+    <div class="form-group">
+        <label>Facilities Available</label>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;">
+            <label class="checkbox-label"><input type="checkbox" value="sanctuary"> Main Sanctuary</label>
+            <label class="checkbox-label"><input type="checkbox" value="hall"> Fellowship Hall</label>
+            <label class="checkbox-label"><input type="checkbox" value="classrooms"> Classrooms</label>
+            <label class="checkbox-label"><input type="checkbox" value="office"> Church Office</label>
+            <label class="checkbox-label"><input type="checkbox" value="parking"> Parking Lot</label>
+            <label class="checkbox-label"><input type="checkbox" value="sound"> Sound System</label>
+            <label class="checkbox-label"><input type="checkbox" value="projector"> Projectors/Screens</label>
+            <label class="checkbox-label"><input type="checkbox" value="livestream"> Livestream Equipment</label>
+            <label class="checkbox-label"><input type="checkbox" value="bookshop"> Bookshop</label>
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Seating Capacity</label>
+            <input type="text" id="churchCapacity" placeholder="e.g., 1000">
+        </div>
+        <div class="form-group">
+            <label>Total Land Area</label>
+            <input type="text" id="churchLand" placeholder="e.g., 2 acres">
+        </div>
+    </div>
+    
+    <!-- Social Media -->
+    <div class="section-divider"><span>🌐 Online Presence</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Website URL</label>
+            <input type="url" id="churchWebsite" placeholder="https://www.church.org">
+        </div>
+        <div class="form-group">
+            <label>Facebook Page</label>
+            <input type="url" id="churchFacebook" placeholder="https://facebook.com/...">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>YouTube Channel</label>
+            <input type="url" id="churchYoutube" placeholder="https://youtube.com/...">
+        </div>
+        <div class="form-group">
+            <label>Instagram Page</label>
+            <input type="url" id="churchInstagram" placeholder="https://instagram.com/...">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Livestream Link</label>
+            <input type="url" id="churchLivestream" placeholder="https://...">
+        </div>
+        <div class="form-group">
+            <label>Podcast/Radio Link</label>
+            <input type="url" id="churchPodcast" placeholder="https://...">
+        </div>
+    </div>
+    
+    <!-- Media -->
+    <div class="section-divider"><span>📹 Media & Resources</span></div>
+    
+    <div class="form-group">
+        <label>Recent Sermon Topics</label>
+        <textarea id="churchSermons" rows="3" placeholder="e.g., The Power of Prayer - Pastor John&#10;Faith and Works - Rev. Peter"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Resources Available</label>
+        <textarea id="churchResources" rows="3" placeholder="e.g., Books, Devotionals, Study Guides, Apps"></textarea>
+    </div>
+    
+    <!-- Additional Information -->
+    <div class="section-divider"><span>📝 Additional Information</span></div>
+    
+    <div class="form-group">
+        <label>Brief History of Church</label>
+        <textarea id="churchHistory" rows="3" placeholder="When and how was the church founded?"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Core Values</label>
+        <textarea id="churchValues" rows="3" placeholder="What are your church's core values?"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Community Outreach Programs</label>
+        <textarea id="churchOutreach" rows="3" placeholder="e.g., Feeding Program, Medical Camps, School Sponsorships"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Missions Support</label>
+        <textarea id="churchMissions" rows="3" placeholder="e.g., Supporting 5 missionaries in Africa"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Any Other Information</label>
+        <textarea id="churchOther" rows="3" placeholder="Anything else we should know?"></textarea>
+    </div>
+</div>
+                
+               <!-- BUSINESS FORM - Complete -->
+<div id="businessFields" style="display: none;">
+    <!-- Basic Information -->
+    <div class="section-divider"><span>💼 Basic Business Information</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label class="required">Business/Company Name</label>
+            <input type="text" id="businessName" placeholder="e.g., KaynaeroTech Solutions">
+        </div>
+        <div class="form-group">
+            <label class="required">Business Registration Number</label>
+            <input type="text" id="businessRegNumber" placeholder="e.g., BRS/2024/12345">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Year Established</label>
+            <input type="number" id="businessYear" placeholder="e.g., 2020" min="1800" max="2024">
+        </div>
+        <div class="form-group">
+            <label>Business Type</label>
+            <select id="businessType">
+                <option value="">-- Select Type --</option>
+                <option value="sole">Sole Proprietorship</option>
+                <option value="partnership">Partnership</option>
+                <option value="ltd">Limited Company (Ltd)</option>
+                <option value="plc">Public Limited Company (PLC)</option>
+                <option value="nonprofit">Non-Profit</option>
+                <option value="cooperative">Cooperative</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Industry/Sector</label>
+            <input type="text" id="businessIndustry" placeholder="e.g., Technology, Healthcare, Real Estate">
+        </div>
+        <div class="form-group">
+            <label>Business Tagline</label>
+            <input type="text" id="businessTagline" placeholder="e.g., Innovation for Tomorrow">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Business Vision</label>
+            <textarea id="businessVision" rows="2" placeholder="What is your business vision?"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Business Mission</label>
+            <textarea id="businessMission" rows="2" placeholder="What is your business mission?"></textarea>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Brief Description of Business</label>
+        <textarea id="businessDescription" rows="3" placeholder="Tell us about your business..."></textarea>
+    </div>
+    
+    <!-- Contact Person -->
+    <div class="section-divider"><span>👤 Contact Person</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label class="required">Contact Person Name</label>
+            <input type="text" id="businessContact" placeholder="Full name">
+        </div>
+        <div class="form-group">
+            <label>Contact Person Title</label>
+            <input type="text" id="businessContactTitle" placeholder="e.g., Director, Manager, Owner">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label class="required">Contact Phone</label>
+            <input type="tel" id="businessContactPhone" placeholder="+254 700 000 000">
+        </div>
+        <div class="form-group">
+            <label class="required">Contact Email</label>
+            <input type="email" id="businessContactEmail" placeholder="contact@company.co.ke">
+        </div>
+    </div>
+    
+    <!-- Contact Information -->
+    <div class="section-divider"><span>📞 Business Contact</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label class="required">Business Phone</label>
+            <input type="tel" id="businessPhone" placeholder="+254 700 000 000">
+        </div>
+        <div class="form-group">
+            <label class="required">Business Email</label>
+            <input type="email" id="businessEmail" placeholder="info@company.co.ke">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Alternative Phone</label>
+            <input type="tel" id="businessPhone2" placeholder="+254 700 000 000">
+        </div>
+        <div class="form-group">
+            <label>WhatsApp Number</label>
+            <input type="tel" id="businessWhatsApp" placeholder="+254 712 345 678">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="required">Physical Address</label>
+        <input type="text" id="businessAddress" placeholder="Street, Building, Landmark">
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Town/City</label>
+            <input type="text" id="businessCity" placeholder="e.g., Nairobi">
+        </div>
+        <div class="form-group">
+            <label>County/Region</label>
+            <input type="text" id="businessCounty" placeholder="e.g., Nairobi">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Postal Address</label>
+            <input type="text" id="businessPostal" placeholder="P.O. Box 123-00100">
+        </div>
+        <div class="form-group">
+            <label>Google Maps Link</label>
+            <input type="url" id="businessMaps" placeholder="https://goo.gl/maps/...">
+        </div>
+    </div>
+    
+    <!-- Business Hours -->
+    <div class="section-divider"><span>🕒 Business Hours</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Monday - Friday</label>
+            <input type="text" id="businessWeekday" placeholder="e.g., 8:00am - 5:00pm">
+        </div>
+        <div class="form-group">
+            <label>Saturday</label>
+            <input type="text" id="businessSaturday" placeholder="e.g., 9:00am - 1:00pm">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Sunday</label>
+            <input type="text" id="businessSunday" placeholder="e.g., Closed">
+        </div>
+        <div class="form-group">
+            <label>Public Holidays</label>
+            <input type="text" id="businessHolidays" placeholder="e.g., Closed">
+        </div>
+    </div>
+    
+    <!-- Products & Services -->
+    <div class="section-divider"><span>📦 Products & Services</span></div>
+    
+    <div class="form-group">
+        <label>Main Products/Services Offered</label>
+        <textarea id="businessProducts" rows="4" placeholder="List your main products or services..."></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Pricing Range</label>
+        <input type="text" id="businessPricing" placeholder="e.g., KES 1,000 - KES 100,000">
+    </div>
+    
+    <div class="form-group">
+        <label>Target Market / Clientele</label>
+        <textarea id="businessTarget" rows="2" placeholder="e.g., Small businesses, Individuals, Corporations"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Unique Selling Points (USP)</label>
+        <textarea id="businessUSP" rows="3" placeholder="What makes your business different from competitors?"></textarea>
+    </div>
+    
+    <!-- Team -->
+    <div class="section-divider"><span>👥 Team Structure</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Number of Employees</label>
+            <input type="text" id="businessEmployees" placeholder="e.g., 15">
+        </div>
+        <div class="form-group">
+            <label>Number of Directors/Partners</label>
+            <input type="text" id="businessDirectors" placeholder="e.g., 3">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Key Team Members</label>
+        <textarea id="businessTeam" rows="4" placeholder="e.g., John Doe - CEO - 15 years experience&#10;Jane Smith - Sales Manager - 10 years experience"></textarea>
+    </div>
+    
+    <!-- Portfolio/Clients -->
+    <div class="section-divider"><span>⭐ Portfolio & Clients</span></div>
+    
+    <div class="form-group">
+        <label>Notable Clients (comma separated)</label>
+        <input type="text" id="businessClients" placeholder="e.g., Safaricom, KCB, Equity Bank">
+    </div>
+    
+    <div class="form-group">
+        <label>Past Projects / Case Studies</label>
+        <textarea id="businessProjects" rows="4" placeholder="Describe notable projects or achievements..."></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Awards & Recognition</label>
+        <textarea id="businessAwards" rows="3" placeholder="e.g., Best Company 2023, ISO Certified"></textarea>
+    </div>
+    
+    <!-- Financial -->
+    <div class="section-divider"><span>💰 Financial Information</span></div>
+    
+    <div class="form-group">
+        <label>Payment Methods Accepted</label>
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+            <label class="checkbox-label"><input type="checkbox" value="cash"> Cash</label>
+            <label class="checkbox-label"><input type="checkbox" value="mpesa"> M-Pesa</label>
+            <label class="checkbox-label"><input type="checkbox" value="card"> Credit/Debit Card</label>
+            <label class="checkbox-label"><input type="checkbox" value="bank"> Bank Transfer</label>
+            <label class="checkbox-label"><input type="checkbox" value="invoice"> Invoice</label>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>M-Pesa Paybill/Till Number</label>
+        <input type="text" id="businessPaybill" placeholder="e.g., 123456">
+    </div>
+    
+    <div class="form-group">
+        <label>Bank Account Details</label>
+        <textarea id="businessBank" rows="2" placeholder="Bank Name, Account Name, Account Number, Branch"></textarea>
+    </div>
+    
+    <!-- Locations/Branches -->
+    <div class="section-divider"><span>🏛️ Branches/Locations</span></div>
+    
+    <div class="form-group">
+        <label>Number of Branches</label>
+        <input type="number" id="businessBranchCount" placeholder="e.g., 3" min="1" max="50">
+    </div>
+    
+    <div class="form-group">
+        <label>Branch Locations</label>
+        <textarea id="businessBranches" rows="4" placeholder="e.g., Main: Nairobi CBD&#10;Branch: Mombasa Road&#10;Branch: Westlands"></textarea>
+    </div>
+    
+    <!-- Social Media -->
+    <div class="section-divider"><span>🌐 Online Presence</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Website URL</label>
+            <input type="url" id="businessWebsite" placeholder="https://www.company.co.ke">
+        </div>
+        <div class="form-group">
+            <label>Facebook Page</label>
+            <input type="url" id="businessFacebook" placeholder="https://facebook.com/...">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Twitter/X Handle</label>
+            <input type="text" id="businessTwitter" placeholder="@companyhandle">
+        </div>
+        <div class="form-group">
+            <label>Instagram Page</label>
+            <input type="url" id="businessInstagram" placeholder="https://instagram.com/...">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>LinkedIn Page</label>
+            <input type="url" id="businessLinkedin" placeholder="https://linkedin.com/...">
+        </div>
+        <div class="form-group">
+            <label>YouTube Channel</label>
+            <input type="url" id="businessYoutube" placeholder="https://youtube.com/...">
+        </div>
+    </div>
+    
+    <!-- Certifications -->
+    <div class="section-divider"><span>✅ Certifications & Memberships</span></div>
+    
+    <div class="form-group">
+        <label>Certifications</label>
+        <textarea id="businessCertifications" rows="3" placeholder="e.g., ISO 9001:2015, KRA Compliant, Tax Compliance"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Industry Memberships</label>
+        <textarea id="businessMemberships" rows="2" placeholder="e.g., KEPSA, Kenya Chamber of Commerce"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Licenses/Permits</label>
+        <textarea id="businessLicenses" rows="2" placeholder="e.g., Single Business Permit, Health Certificate"></textarea>
+    </div>
+    
+    <!-- Testimonials -->
+    <div class="section-divider"><span>⭐ Client Testimonials</span></div>
+    
+    <div class="form-group">
+        <label>Client Testimonials</label>
+        <textarea id="businessTestimonials" rows="4" placeholder="e.g., John from Safaricom - 'Excellent service, highly recommended!'"></textarea>
+    </div>
+    
+    <!-- Additional Information -->
+    <div class="section-divider"><span>📝 Additional Information</span></div>
+    
+    <div class="form-group">
+        <label>Brief History</label>
+        <textarea id="businessHistory" rows="3" placeholder="How did your business start?"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Core Values</label>
+        <textarea id="businessValues" rows="3" placeholder="What are your company's core values?"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>CSR Initiatives</label>
+        <textarea id="businessCSR" rows="3" placeholder="e.g., Sponsoring education, Environmental programs"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Upcoming Events / Promotions</label>
+        <textarea id="businessEvents" rows="3" placeholder="e.g., Anniversary Sale - June 2024"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Any Other Information</label>
+        <textarea id="businessOther" rows="3" placeholder="Anything else we should know?"></textarea>
+    </div>
+</div>
+                
+               <!-- HOTEL FORM - Complete -->
+<div id="hotelFields" style="display: none;">
+    <!-- Basic Information -->
+    <div class="section-divider"><span>🏨 Basic Hotel Information</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label class="required">Hotel/Lodge Name</label>
+            <input type="text" id="hotelName" placeholder="e.g., Kitengela Safari Lodge">
+        </div>
+        <div class="form-group">
+            <label>Hotel Type</label>
+            <select id="hotelType">
+                <option value="">-- Select Type --</option>
+                <option value="hotel">Hotel</option>
+                <option value="lodge">Lodge</option>
+                <option value="resort">Resort</option>
+                <option value="guesthouse">Guest House</option>
+                <option value="airbnb">Airbnb / Vacation Rental</option>
+                <option value="boutique">Boutique Hotel</option>
+                <option value="motel">Motel</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Star Rating</label>
+            <select id="hotelStars">
+                <option value="">-- Select Rating --</option>
+                <option value="1">1 Star</option>
+                <option value="2">2 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="5">5 Stars</option>
+                <option value="none">Not Rated</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Year Established</label>
+            <input type="number" id="hotelYear" placeholder="e.g., 2010" min="1800" max="2024">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Hotel Tagline</label>
+            <input type="text" id="hotelTagline" placeholder="e.g., Your Home Away from Home">
+        </div>
+        <div class="form-group">
+            <label>Hotel Motto</label>
+            <input type="text" id="hotelMotto" placeholder="e.g., Experience Luxury in the Wild">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Hotel Description</label>
+        <textarea id="hotelDescription" rows="3" placeholder="Describe your hotel, its atmosphere, and what makes it special..."></textarea>
+    </div>
+    
+    <!-- Contact Information -->
+    <div class="section-divider"><span>📞 Contact Information</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label class="required">Hotel Manager Name</label>
+            <input type="text" id="hotelManager" placeholder="Full name of manager">
+        </div>
+        <div class="form-group">
+            <label>Manager's Phone</label>
+            <input type="tel" id="hotelManagerPhone" placeholder="+254 700 000 000">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label class="required">Reception Phone</label>
+            <input type="tel" id="hotelPhone" placeholder="+254 700 000 000">
+        </div>
+        <div class="form-group">
+            <label class="required">Reservations Email</label>
+            <input type="email" id="hotelEmail" placeholder="reservations@hotel.co.ke">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>WhatsApp Number</label>
+            <input type="tel" id="hotelWhatsApp" placeholder="+254 712 345 678">
+        </div>
+        <div class="form-group">
+            <label>Alternative Phone</label>
+            <input type="tel" id="hotelPhone2" placeholder="+254 700 000 000">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="required">Physical Address</label>
+        <input type="text" id="hotelAddress" placeholder="Street, Building, Landmark">
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Town/City</label>
+            <input type="text" id="hotelCity" placeholder="e.g., Kitengela">
+        </div>
+        <div class="form-group">
+            <label>County/Region</label>
+            <input type="text" id="hotelCounty" placeholder="e.g., Kajiado">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Postal Address</label>
+            <input type="text" id="hotelPostal" placeholder="P.O. Box 123-00100">
+        </div>
+        <div class="form-group">
+            <label>Google Maps Link</label>
+            <input type="url" id="hotelMaps" placeholder="https://goo.gl/maps/...">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Nearest Landmark/Airport</label>
+        <input type="text" id="hotelLandmark" placeholder="e.g., 5km from Jomo Kenyatta Airport">
+    </div>
+    
+    <!-- Rooms & Accommodation -->
+    <div class="section-divider"><span>🛏️ Rooms & Accommodation</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Total Number of Rooms</label>
+            <input type="number" id="hotelTotalRooms" placeholder="e.g., 50">
+        </div>
+        <div class="form-group">
+            <label>Maximum Occupancy</label>
+            <input type="text" id="hotelOccupancy" placeholder="e.g., 100 guests">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Room Types & Rates</label>
+        <textarea id="hotelRoomTypes" rows="5" placeholder="e.g., Single Room: KES 5,000/night (1 person)&#10;Double Room: KES 8,000/night (2 persons)&#10;Deluxe Suite: KES 15,000/night (2 persons)&#10;Family Room: KES 12,000/night (4 persons)&#10;Executive Suite: KES 25,000/night (2 persons)"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Room Amenities</label>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;">
+            <label class="checkbox-label"><input type="checkbox" value="tv"> TV</label>
+            <label class="checkbox-label"><input type="checkbox" value="wifi"> Free WiFi</label>
+            <label class="checkbox-label"><input type="checkbox" value="ac"> Air Conditioning</label>
+            <label class="checkbox-label"><input type="checkbox" value="bath"> Private Bathroom</label>
+            <label class="checkbox-label"><input type="checkbox" value="fridge"> Mini Fridge</label>
+            <label class="checkbox-label"><input type="checkbox" value="safe"> Safe</label>
+            <label class="checkbox-label"><input type="checkbox" value="balcony"> Balcony/Patio</label>
+            <label class="checkbox-label"><input type="checkbox" value="tea"> Tea/Coffee Maker</label>
+            <label class="checkbox-label"><input type="checkbox" value="desk"> Work Desk</label>
+        </div>
+    </div>
+    
+    <!-- Hotel Amenities -->
+    <div class="section-divider"><span>🏊 Hotel Amenities & Facilities</span></div>
+    
+    <div class="form-group">
+        <label>Facilities Available</label>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;">
+            <label class="checkbox-label"><input type="checkbox" value="pool"> Swimming Pool</label>
+            <label class="checkbox-label"><input type="checkbox" value="gym"> Gym/Fitness Center</label>
+            <label class="checkbox-label"><input type="checkbox" value="spa"> Spa/Massage</label>
+            <label class="checkbox-label"><input type="checkbox" value="restaurant"> Restaurant</label>
+            <label class="checkbox-label"><input type="checkbox" value="bar"> Bar/Lounge</label>
+            <label class="checkbox-label"><input type="checkbox" value="parking"> Free Parking</label>
+            <label class="checkbox-label"><input type="checkbox" value="conference"> Conference Hall</label>
+            <label class="checkbox-label"><input type="checkbox" value="garden"> Garden</label>
+            <label class="checkbox-label"><input type="checkbox" value="kids"> Kids' Play Area</label>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Other Amenities (comma separated)</label>
+        <input type="text" id="hotelOtherAmenities" placeholder="e.g., Airport Shuttle, Laundry Service, 24hr Security">
+    </div>
+    
+    <!-- Dining -->
+    <div class="section-divider"><span>🍽️ Dining & Restaurant</span></div>
+    
+    <div class="form-group">
+        <label>Restaurant Name(s)</label>
+        <input type="text" id="hotelRestaurantName" placeholder="e.g., The Savannah Grill">
+    </div>
+    
+    <div class="form-group">
+        <label>Cuisine Types</label>
+        <input type="text" id="hotelCuisine" placeholder="e.g., Kenyan, International, Indian, Chinese">
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Breakfast Hours</label>
+            <input type="text" id="hotelBreakfast" placeholder="e.g., 6:30am - 10:00am">
+        </div>
+        <div class="form-group">
+            <label>Lunch Hours</label>
+            <input type="text" id="hotelLunch" placeholder="e.g., 12:30pm - 3:00pm">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Dinner Hours</label>
+            <input type="text" id="hotelDinner" placeholder="e.g., 6:30pm - 10:00pm">
+        </div>
+        <div class="form-group">
+            <label>Room Service Hours</label>
+            <input type="text" id="hotelRoomService" placeholder="e.g., 24 hours">
+        </div>
+    </div>
+    
+    <!-- Policies -->
+    <div class="section-divider"><span>📋 Hotel Policies</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Check-in Time</label>
+            <input type="text" id="hotelCheckIn" placeholder="e.g., 2:00 PM">
+        </div>
+        <div class="form-group">
+            <label>Check-out Time</label>
+            <input type="text" id="hotelCheckOut" placeholder="e.g., 10:00 AM">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Cancellation Policy</label>
+        <textarea id="hotelCancellation" rows="3" placeholder="e.g., Free cancellation up to 24 hours before check-in"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Child Policy</label>
+        <textarea id="hotelChildPolicy" rows="2" placeholder="e.g., Children under 12 stay free with parents"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Pet Policy</label>
+        <select id="hotelPetPolicy">
+            <option value="">-- Select Policy --</option>
+            <option value="allowed">Pets Allowed</option>
+            <option value="notallowed">No Pets Allowed</option>
+            <option value="restricted">Restricted (small pets only)</option>
+        </select>
+    </div>
+    
+    <!-- Payment -->
+    <div class="section-divider"><span>💰 Payment Information</span></div>
+    
+    <div class="form-group">
+        <label>Payment Methods Accepted</label>
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+            <label class="checkbox-label"><input type="checkbox" value="cash"> Cash</label>
+            <label class="checkbox-label"><input type="checkbox" value="mpesa"> M-Pesa</label>
+            <label class="checkbox-label"><input type="checkbox" value="card"> Credit/Debit Card</label>
+            <label class="checkbox-label"><input type="checkbox" value="bank"> Bank Transfer</label>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>M-Pesa Paybill/Till Number</label>
+        <input type="text" id="hotelPaybill" placeholder="e.g., 123456">
+    </div>
+    
+    <div class="form-group">
+        <label>Bank Account Details</label>
+        <textarea id="hotelBank" rows="2" placeholder="Bank Name, Account Name, Account Number, Branch"></textarea>
+    </div>
+    
+    <!-- Statistics -->
+    <div class="section-divider"><span>📊 Hotel Statistics</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Years in Operation</label>
+            <input type="text" id="hotelYears" placeholder="e.g., 10+">
+        </div>
+        <div class="form-group">
+            <label>Average Occupancy Rate</label>
+            <input type="text" id="hotelOccupancyRate" placeholder="e.g., 75%">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Number of Employees</label>
+            <input type="text" id="hotelEmployees" placeholder="e.g., 30">
+        </div>
+        <div class="form-group">
+            <label>Awards & Recognition</label>
+            <input type="text" id="hotelAwards" placeholder="e.g., Best Hotel 2023">
+        </div>
+    </div>
+    
+    <!-- Social Media -->
+    <div class="section-divider"><span>🌐 Online Presence</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Website URL</label>
+            <input type="url" id="hotelWebsite" placeholder="https://www.hotel.co.ke">
+        </div>
+        <div class="form-group">
+            <label>Booking.com Link</label>
+            <input type="url" id="hotelBooking" placeholder="https://www.booking.com/...">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Airbnb Link</label>
+            <input type="url" id="hotelAirbnb" placeholder="https://www.airbnb.com/...">
+        </div>
+        <div class="form-group">
+            <label>Facebook Page</label>
+            <input type="url" id="hotelFacebook" placeholder="https://facebook.com/...">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Instagram Page</label>
+            <input type="url" id="hotelInstagram" placeholder="https://instagram.com/...">
+        </div>
+        <div class="form-group">
+            <label>TripAdvisor Page</label>
+            <input type="url" id="hotelTripAdvisor" placeholder="https://tripadvisor.com/...">
+        </div>
+    </div>
+    
+    <!-- Reviews -->
+    <div class="section-divider"><span>⭐ Guest Reviews</span></div>
+    
+    <div class="form-group">
+        <label>Average Rating (out of 5)</label>
+        <input type="text" id="hotelRating" placeholder="e.g., 4.5">
+    </div>
+    
+    <div class="form-group">
+        <label>Sample Testimonials</label>
+        <textarea id="hotelTestimonials" rows="4" placeholder="e.g., 'Amazing stay! The staff were wonderful.' - John D.&#10;'Beautiful location and excellent service.' - Mary K."></textarea>
+    </div>
+    
+    <!-- Nearby Attractions -->
+    <div class="section-divider"><span>📍 Nearby Attractions</span></div>
+    
+    <div class="form-group">
+        <label>Local Attractions</label>
+        <textarea id="hotelAttractions" rows="4" placeholder="e.g., Nairobi National Park - 10km&#10;Kitengela Glass - 5km&#10;Shopping Malls - 2km"></textarea>
+    </div>
+    
+    <!-- Additional Information -->
+    <div class="section-divider"><span>📝 Additional Information</span></div>
+    
+    <div class="form-group">
+        <label>Brief History</label>
+        <textarea id="hotelHistory" rows="3" placeholder="When and how did your hotel start?"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Sustainability Initiatives</label>
+        <textarea id="hotelSustainability" rows="3" placeholder="e.g., Solar power, Water conservation, Local sourcing"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Corporate Packages</label>
+        <textarea id="hotelCorporate" rows="3" placeholder="e.g., Conference packages, Team building offers"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Special Offers/Promotions</label>
+        <textarea id="hotelOffers" rows="3" placeholder="e.g., Weekend special, Honeymoon package"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Any Other Information</label>
+        <textarea id="hotelOther" rows="3" placeholder="Anything else we should know?"></textarea>
+    </div>
+</div>
+                
+                <!-- RESTAURANT FORM - Complete -->
+<div id="restaurantFields" style="display: none;">
+    <!-- Basic Information -->
+    <div class="section-divider"><span>🍽️ Basic Restaurant Information</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label class="required">Restaurant Name</label>
+            <input type="text" id="restaurantName" placeholder="e.g., Savanna Bites">
+        </div>
+        <div class="form-group">
+            <label>Restaurant Type</label>
+            <select id="restaurantType">
+                <option value="">-- Select Type --</option>
+                <option value="fine">Fine Dining</option>
+                <option value="casual">Casual Dining</option>
+                <option value="fast">Fast Food</option>
+                <option value="cafe">Cafe / Coffee Shop</option>
+                <option value="bar">Bar / Pub</option>
+                <option value="foodtruck">Food Truck</option>
+                <option value="bakery">Bakery</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Cuisine Type</label>
+            <select id="restaurantCuisine" multiple size="4" style="height: auto;">
+                <option value="kenyan">Kenyan</option>
+                <option value="ethiopian">Ethiopian</option>
+                <option value="indian">Indian</option>
+                <option value="chinese">Chinese</option>
+                <option value="italian">Italian</option>
+                <option value="french">French</option>
+                <option value="mexican">Mexican</option>
+                <option value="japanese">Japanese</option>
+                <option value="seafood">Seafood</option>
+                <option value="vegetarian">Vegetarian/Vegan</option>
+                <option value="fastfood">Fast Food</option>
+                <option value="fusion">Fusion</option>
+            </select>
+            <small>Hold Ctrl/Cmd to select multiple</small>
+        </div>
+        <div class="form-group">
+            <label>Year Established</label>
+            <input type="number" id="restaurantYear" placeholder="e.g., 2015" min="1800" max="2024">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Restaurant Tagline</label>
+        <input type="text" id="restaurantTagline" placeholder="e.g., Taste the Difference">
+    </div>
+    
+    <div class="form-group">
+        <label>Restaurant Description</label>
+        <textarea id="restaurantDescription" rows="3" placeholder="Describe your restaurant, atmosphere, and what makes it special..."></textarea>
+    </div>
+    
+    <!-- Contact Information -->
+    <div class="section-divider"><span>📞 Contact Information</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label class="required">Restaurant Manager/Owner</label>
+            <input type="text" id="restaurantManager" placeholder="Full name">
+        </div>
+        <div class="form-group">
+            <label>Manager's Phone</label>
+            <input type="tel" id="restaurantManagerPhone" placeholder="+254 700 000 000">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label class="required">Restaurant Phone</label>
+            <input type="tel" id="restaurantPhone" placeholder="+254 700 000 000">
+        </div>
+        <div class="form-group">
+            <label class="required">Restaurant Email</label>
+            <input type="email" id="restaurantEmail" placeholder="info@restaurant.co.ke">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>WhatsApp Number</label>
+            <input type="tel" id="restaurantWhatsApp" placeholder="+254 712 345 678">
+        </div>
+        <div class="form-group">
+            <label>Alternative Phone</label>
+            <input type="tel" id="restaurantPhone2" placeholder="+254 700 000 000">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="required">Physical Address</label>
+        <input type="text" id="restaurantAddress" placeholder="Street, Building, Landmark">
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Town/City</label>
+            <input type="text" id="restaurantCity" placeholder="e.g., Nairobi">
+        </div>
+        <div class="form-group">
+            <label>County/Region</label>
+            <input type="text" id="restaurantCounty" placeholder="e.g., Nairobi">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Postal Address</label>
+            <input type="text" id="restaurantPostal" placeholder="P.O. Box 123-00100">
+        </div>
+        <div class="form-group">
+            <label>Google Maps Link</label>
+            <input type="url" id="restaurantMaps" placeholder="https://goo.gl/maps/...">
+        </div>
+    </div>
+    
+    <!-- Operating Hours -->
+    <div class="section-divider"><span>🕒 Operating Hours</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Monday - Friday</label>
+            <input type="text" id="restaurantWeekday" placeholder="e.g., 8:00am - 10:00pm">
+        </div>
+        <div class="form-group">
+            <label>Saturday</label>
+            <input type="text" id="restaurantSaturday" placeholder="e.g., 9:00am - 11:00pm">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Sunday</label>
+            <input type="text" id="restaurantSunday" placeholder="e.g., 10:00am - 8:00pm">
+        </div>
+        <div class="form-group">
+            <label>Public Holidays</label>
+            <input type="text" id="restaurantHolidays" placeholder="e.g., 12:00pm - 6:00pm">
+        </div>
+    </div>
+    
+    <!-- Menu Information -->
+    <div class="section-divider"><span>📋 Menu Information</span></div>
+    
+    <div class="form-group">
+        <label>Sample Menu Items & Prices</label>
+        <textarea id="restaurantMenu" rows="6" placeholder="e.g., Nyama Choma (1kg) - KES 1,500&#10;Ugali Sukuma Wiki - KES 350&#10;Grilled Fish - KES 800&#10;Chicken Biryani - KES 600&#10;Samosa (3pcs) - KES 150&#10;Fresh Juice - KES 250"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Signature Dishes</label>
+        <textarea id="restaurantSignature" rows="3" placeholder="What dishes is your restaurant known for?"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Dietary Options</label>
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+            <label class="checkbox-label"><input type="checkbox" value="vegetarian"> Vegetarian</label>
+            <label class="checkbox-label"><input type="checkbox" value="vegan"> Vegan</label>
+            <label class="checkbox-label"><input type="checkbox" value="gluten"> Gluten-Free</label>
+            <label class="checkbox-label"><input type="checkbox" value="halal"> Halal</label>
+            <label class="checkbox-label"><input type="checkbox" value="kids"> Kids Menu</label>
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Average Price per Person</label>
+            <input type="text" id="restaurantPrice" placeholder="e.g., KES 500 - 1,500">
+        </div>
+        <div class="form-group">
+            <label>Price Range</label>
+            <select id="restaurantPriceRange">
+                <option value="$">$ - Budget (Under KES 500)</option>
+                <option value="$$">$$ - Moderate (KES 500-1,500)</option>
+                <option value="$$$">$$$ - Expensive (KES 1,500-3,000)</option>
+                <option value="$$$$">$$$$ - Luxury (Above KES 3,000)</option>
+            </select>
+        </div>
+    </div>
+    
+    <!-- Facilities & Amenities -->
+    <div class="section-divider"><span>🏛️ Facilities & Amenities</span></div>
+    
+    <div class="form-group">
+        <label>Facilities Available</label>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;">
+            <label class="checkbox-label"><input type="checkbox" value="indoor"> Indoor Seating</label>
+            <label class="checkbox-label"><input type="checkbox" value="outdoor"> Outdoor Seating</label>
+            <label class="checkbox-label"><input type="checkbox" value="private"> Private Dining Room</label>
+            <label class="checkbox-label"><input type="checkbox" value="bar"> Bar Area</label>
+            <label class="checkbox-label"><input type="checkbox" value="wifi"> Free WiFi</label>
+            <label class="checkbox-label"><input type="checkbox" value="parking"> Parking</label>
+            <label class="checkbox-label"><input type="checkbox" value="takeaway"> Takeaway Service</label>
+            <label class="checkbox-label"><input type="checkbox" value="delivery"> Delivery Service</label>
+            <label class="checkbox-label"><input type="checkbox" value="catering"> Catering Service</label>
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Seating Capacity</label>
+            <input type="number" id="restaurantCapacity" placeholder="e.g., 80">
+        </div>
+        <div class="form-group">
+            <label>Number of Tables</label>
+            <input type="number" id="restaurantTables" placeholder="e.g., 20">
+        </div>
+    </div>
+    
+    <!-- Reservations -->
+    <div class="section-divider"><span>📅 Reservations</span></div>
+    
+    <div class="form-group">
+        <label>Reservation Policy</label>
+        <select id="restaurantReservation">
+            <option value="required">Reservations Required</option>
+            <option value="recommended">Reservations Recommended</option>
+            <option value="walkins">Walk-ins Welcome</option>
+            <option value="both">Both Accepted</option>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label>Reservation Contact</label>
+        <input type="text" id="restaurantReservationContact" placeholder="Phone or email for bookings">
+    </div>
+    
+    <!-- Payment -->
+    <div class="section-divider"><span>💰 Payment Information</span></div>
+    
+    <div class="form-group">
+        <label>Payment Methods Accepted</label>
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+            <label class="checkbox-label"><input type="checkbox" value="cash"> Cash</label>
+            <label class="checkbox-label"><input type="checkbox" value="mpesa"> M-Pesa</label>
+            <label class="checkbox-label"><input type="checkbox" value="card"> Credit/Debit Card</label>
+            <label class="checkbox-label"><input type="checkbox" value="bank"> Bank Transfer</label>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>M-Pesa Paybill/Till Number</label>
+        <input type="text" id="restaurantPaybill" placeholder="e.g., 123456">
+    </div>
+    
+    <!-- Delivery Services -->
+    <div class="section-divider"><span>🛵 Delivery Services</span></div>
+    
+    <div class="form-group">
+        <label>Delivery Platforms</label>
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+            <label class="checkbox-label"><input type="checkbox" value="glovo"> Glovo</label>
+            <label class="checkbox-label"><input type="checkbox" value="uber"> Uber Eats</label>
+            <label class="checkbox-label"><input type="checkbox" value="bolt"> Bolt Food</label>
+            <label class="checkbox-label"><input type="checkbox" value="jiji"> Jiji Food</label>
+            <label class="checkbox-label"><input type="checkbox" value="own"> Own Delivery</label>
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Delivery Fee</label>
+            <input type="text" id="restaurantDeliveryFee" placeholder="e.g., KES 150">
+        </div>
+        <div class="form-group">
+            <label>Minimum Order</label>
+            <input type="text" id="restaurantMinOrder" placeholder="e.g., KES 500">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Delivery Areas</label>
+        <textarea id="restaurantDeliveryAreas" rows="2" placeholder="e.g., Kitengela, Athi River, Isinya"></textarea>
+    </div>
+    
+    <!-- Social Media -->
+    <div class="section-divider"><span>🌐 Online Presence</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Website URL</label>
+            <input type="url" id="restaurantWebsite" placeholder="https://www.restaurant.co.ke">
+        </div>
+        <div class="form-group">
+            <label>Facebook Page</label>
+            <input type="url" id="restaurantFacebook" placeholder="https://facebook.com/...">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Instagram Page</label>
+            <input type="url" id="restaurantInstagram" placeholder="https://instagram.com/...">
+        </div>
+        <div class="form-group">
+            <label>Twitter/X Handle</label>
+            <input type="text" id="restaurantTwitter" placeholder="@restauranthandle">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>TikTok</label>
+            <input type="url" id="restaurantTikTok" placeholder="https://tiktok.com/...">
+        </div>
+        <div class="form-group">
+            <label>Food Delivery Links</label>
+            <input type="url" id="restaurantDeliveryLink" placeholder="https://glovoapp.com/...">
+        </div>
+    </div>
+    
+    <!-- Reviews -->
+    <div class="section-divider"><span>⭐ Customer Reviews</span></div>
+    
+    <div class="form-group">
+        <label>Average Rating</label>
+        <input type="text" id="restaurantRating" placeholder="e.g., 4.3/5">
+    </div>
+    
+    <div class="form-group">
+        <label>Sample Testimonials</label>
+        <textarea id="restaurantTestimonials" rows="4" placeholder="e.g., 'Best nyama choma in town!' - Peter K.&#10;'Great atmosphere and friendly staff.' - Jane M."></textarea>
+    </div>
+    
+    <!-- Staff -->
+    <div class="section-divider"><span>👥 Staff Information</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Number of Chefs</label>
+            <input type="text" id="restaurantChefs" placeholder="e.g., 5">
+        </div>
+        <div class="form-group">
+            <label>Head Chef Name</label>
+            <input type="text" id="restaurantHeadChef" placeholder="Name of head chef">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Total Staff</label>
+            <input type="text" id="restaurantTotalStaff" placeholder="e.g., 15">
+        </div>
+        <div class="form-group">
+            <label>Languages Spoken</label>
+            <input type="text" id="restaurantLanguages" placeholder="e.g., English, Kiswahili">
+        </div>
+    </div>
+    
+    <!-- Awards -->
+    <div class="section-divider"><span>🏆 Awards & Recognition</span></div>
+    
+    <div class="form-group">
+        <label>Awards Received</label>
+        <textarea id="restaurantAwards" rows="3" placeholder="e.g., Best Restaurant in Kitengela 2023&#10;Eat Out Awards Nominee 2022"></textarea>
+    </div>
+    
+    <!-- Special Events -->
+    <div class="section-divider"><span>🎉 Special Events</span></div>
+    
+    <div class="form-group">
+        <label>Live Entertainment</label>
+        <input type="text" id="restaurantEntertainment" placeholder="e.g., Live band Fridays, DJ Saturdays">
+    </div>
+    
+    <div class="form-group">
+        <label>Special Events</label>
+        <textarea id="restaurantEvents" rows="3" placeholder="e.g., Sunday Brunch, Wine Tasting, Themed Nights"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Private Events/Catering</label>
+        <textarea id="restaurantPrivateEvents" rows="3" placeholder="e.g., Wedding catering, Corporate events, Birthdays"></textarea>
+    </div>
+    
+    <!-- Additional Information -->
+    <div class="section-divider"><span>📝 Additional Information</span></div>
+    
+    <div class="form-group">
+        <label>Restaurant Story</label>
+        <textarea id="restaurantStory" rows="3" placeholder="How did your restaurant start? What's your inspiration?"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Sourcing Practices</label>
+        <textarea id="restaurantSourcing" rows="2" placeholder="e.g., Local farmers, Fresh ingredients, Organic"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Special Offers/Promotions</label>
+        <textarea id="restaurantOffers" rows="3" placeholder="e.g., Happy Hour 5-7pm, 2-for-1 Tuesdays"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Any Other Information</label>
+        <textarea id="restaurantOther" rows="3" placeholder="Anything else we should know?"></textarea>
+    </div>
+</div>
+                
+                <!-- NGO FORM - Complete -->
+<div id="ngoFields" style="display: none;">
+    <!-- Basic Information -->
+    <div class="section-divider"><span>🤝 Basic NGO Information</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label class="required">Organization Name</label>
+            <input type="text" id="ngoName" placeholder="e.g., Kitengela Community Foundation">
+        </div>
+        <div class="form-group">
+            <label class="required">Registration Number</label>
+            <input type="text" id="ngoRegNumber" placeholder="e.g., NGO/REG/2020/123">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Year Established</label>
+            <input type="number" id="ngoYear" placeholder="e.g., 2015" min="1800" max="2024">
+        </div>
+        <div class="form-group">
+            <label>Registration Status</label>
+            <select id="ngoStatus">
+                <option value="">-- Select Status --</option>
+                <option value="registered">Fully Registered</option>
+                <option value="interim">Interim/Provisional</option>
+                <option value="international">International NGO</option>
+                <option value="community">Community Based Organization</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Organization Type</label>
+            <select id="ngoType">
+                <option value="">-- Select Type --</option>
+                <option value="health">Health</option>
+                <option value="education">Education</option>
+                <option value="environment">Environment</option>
+                <option value="children">Children/Women</option>
+                <option value="disability">Disability</option>
+                <option value="poverty">Poverty Alleviation</option>
+                <option value="humanrights">Human Rights</option>
+                <option value="community">Community Development</option>
+                <option value="emergency">Emergency/Disaster Relief</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Geographic Focus</label>
+            <input type="text" id="ngoArea" placeholder="e.g., Kitengela, Athi River, Kajiado County">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Organization Vision</label>
+            <textarea id="ngoVision" rows="2" placeholder="What is your organization's vision?"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Organization Mission</label>
+            <textarea id="ngoMission" rows="2" placeholder="What is your organization's mission?"></textarea>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Organization Motto</label>
+        <input type="text" id="ngoMotto" placeholder="e.g., Empowering Communities, Changing Lives">
+    </div>
+    
+    <div class="form-group">
+        <label>Brief Description / History</label>
+        <textarea id="ngoDescription" rows="3" placeholder="Tell us about your organization's story and purpose..."></textarea>
+    </div>
+    
+    <!-- Core Values -->
+    <div class="section-divider"><span>⭐ Core Values</span></div>
+    
+    <div class="form-group">
+        <label>Core Values</label>
+        <textarea id="ngoValues" rows="3" placeholder="e.g., Integrity, Transparency, Compassion, Empowerment, Sustainability"></textarea>
+    </div>
+    
+    <!-- Contact Information -->
+    <div class="section-divider"><span>📞 Contact Information</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label class="required">Director/CEO Name</label>
+            <input type="text" id="ngoDirector" placeholder="Full name of director">
+        </div>
+        <div class="form-group">
+            <label>Director's Title</label>
+            <input type="text" id="ngoDirectorTitle" placeholder="e.g., Executive Director, CEO">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Director's Phone</label>
+            <input type="tel" id="ngoDirectorPhone" placeholder="+254 700 000 000">
+        </div>
+        <div class="form-group">
+            <label>Director's Email</label>
+            <input type="email" id="ngoDirectorEmail" placeholder="director@ngo.org">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label class="required">Office Phone</label>
+            <input type="tel" id="ngoPhone" placeholder="+254 700 000 000">
+        </div>
+        <div class="form-group">
+            <label class="required">Office Email</label>
+            <input type="email" id="ngoEmail" placeholder="info@ngo.org">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Alternative Phone</label>
+            <input type="tel" id="ngoPhone2" placeholder="+254 700 000 000">
+        </div>
+        <div class="form-group">
+            <label>WhatsApp Number</label>
+            <input type="tel" id="ngoWhatsApp" placeholder="+254 712 345 678">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="required">Physical Address</label>
+        <input type="text" id="ngoAddress" placeholder="Street, Building, Landmark">
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Town/City</label>
+            <input type="text" id="ngoCity" placeholder="e.g., Kitengela">
+        </div>
+        <div class="form-group">
+            <label>County/Region</label>
+            <input type="text" id="ngoCounty" placeholder="e.g., Kajiado">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Postal Address</label>
+            <input type="text" id="ngoPostal" placeholder="P.O. Box 123-00100">
+        </div>
+        <div class="form-group">
+            <label>Google Maps Link</label>
+            <input type="url" id="ngoMaps" placeholder="https://goo.gl/maps/...">
+        </div>
+    </div>
+    
+    <!-- Leadership & Governance -->
+    <div class="section-divider"><span>👥 Leadership & Governance</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Board Chairperson Name</label>
+            <input type="text" id="ngoChair" placeholder="Full name">
+        </div>
+        <div class="form-group">
+            <label>Board Size</label>
+            <input type="number" id="ngoBoardSize" placeholder="e.g., 7">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Key Leadership Team</label>
+        <textarea id="ngoLeadership" rows="4" placeholder="e.g., Programs Director: Jane Doe&#10;Finance Manager: John Smith&#10;Field Coordinator: Peter Kamau"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Number of Staff</label>
+        <div class="form-row">
+            <input type="text" id="ngoFulltime" placeholder="Full-time: e.g., 15">
+            <input type="text" id="ngoParttime" placeholder="Part-time: e.g., 5">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Number of Volunteers</label>
+        <input type="text" id="ngoVolunteers" placeholder="e.g., 50">
+    </div>
+    
+    <!-- Programs & Projects -->
+    <div class="section-divider"><span>📋 Programs & Projects</span></div>
+    
+    <div class="form-group">
+        <label>Current Programs/Projects</label>
+        <textarea id="ngoPrograms" rows="5" placeholder="e.g., 1. Education Sponsorship Program - Supporting 100 children&#10;2. Health Outreach - Mobile clinics in 5 villages&#10;3. Women Empowerment - Skills training for 200 women&#10;4. Environmental Conservation - Tree planting initiative"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Past Projects/Impact</label>
+        <textarea id="ngoPastProjects" rows="4" placeholder="e.g., Built 3 classrooms in Isinya (2023)&#10;Provided clean water to 2 communities (2022)"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Beneficiaries Reached</label>
+        <input type="text" id="ngoBeneficiaries" placeholder="e.g., 10,000+ since inception">
+    </div>
+    
+    <!-- Impact Statistics -->
+    <div class="section-divider"><span>📊 Impact Statistics</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Children Supported</label>
+            <input type="text" id="ngoChildren" placeholder="e.g., 500">
+        </div>
+        <div class="form-group">
+            <label>Women Empowered</label>
+            <input type="text" id="ngoWomen" placeholder="e.g., 300">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Schools Built/Supported</label>
+            <input type="text" id="ongoingSchools" placeholder="e.g., 5">
+        </div>
+        <div class="form-group">
+            <label>Communities Reached</label>
+            <input type="text" id="ngoCommunities" placeholder="e.g., 15">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Key Achievements</label>
+        <textarea id="ngoAchievements" rows="3" placeholder="e.g., Recognized by Ministry of Health, Award for Community Service 2023"></textarea>
+    </div>
+    
+    <!-- Donors & Partners -->
+    <div class="section-divider"><span>🤝 Donors & Partners</span></div>
+    
+    <div class="form-group">
+        <label>Current Donors/Funders</label>
+        <textarea id="ngoDonors" rows="4" placeholder="e.g., USAID, European Union, Global Fund, Local corporations, Individual donors"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Implementation Partners</label>
+        <textarea id="ngoPartners" rows="3" placeholder="e.g., Ministry of Health, World Vision, Local churches, Community leaders"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Corporate Partners</label>
+        <input type="text" id="ngoCorporate" placeholder="e.g., Safaricom, KCB, Equity Bank">
+    </div>
+    
+    <!-- Funding & Financial -->
+    <div class="section-divider"><span>💰 Funding & Financial</span></div>
+    
+    <div class="form-group">
+        <label>Annual Budget Range</label>
+        <select id="ngoBudget">
+            <option value="">-- Select Range --</option>
+            <option value="under1m">Under KES 1M</option>
+            <option value="1-5m">KES 1M - 5M</option>
+            <option value="5-10m">KES 5M - 10M</option>
+            <option value="10-50m">KES 10M - 50M</option>
+            <option value="50-100m">KES 50M - 100M</option>
+            <option value="over100m">Over KES 100M</option>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label>Funding Sources</label>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem;">
+            <label class="checkbox-label"><input type="checkbox" value="grants"> Grants</label>
+            <label class="checkbox-label"><input type="checkbox" value="donations"> Individual Donations</label>
+            <label class="checkbox-label"><input type="checkbox" value="corporate"> Corporate Sponsorship</label>
+            <label class="checkbox-label"><input type="checkbox" value="government"> Government Funding</label>
+            <label class="checkbox-label"><input type="checkbox" value="fundraising"> Fundraising Events</label>
+            <label class="checkbox-label"><input type="checkbox" value="membership"> Membership Fees</label>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Donation Methods</label>
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+            <label class="checkbox-label"><input type="checkbox" value="mpesa"> M-Pesa</label>
+            <label class="checkbox-label"><input type="checkbox" value="bank"> Bank Transfer</label>
+            <label class="checkbox-label"><input type="checkbox" value="paypal"> PayPal</label>
+            <label class="checkbox-label"><input type="checkbox" value="card"> Credit Card</label>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>M-Pesa Paybill/Till Number</label>
+        <input type="text" id="ngoPaybill" placeholder="e.g., 123456">
+    </div>
+    
+    <div class="form-group">
+        <label>Bank Account Details</label>
+        <textarea id="ngoBank" rows="2" placeholder="Bank Name, Account Name, Account Number, Branch"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Online Donation Link</label>
+        <input type="url" id="ngoDonationLink" placeholder="https://...">
+    </div>
+    
+    <!-- Transparency & Compliance -->
+    <div class="section-divider"><span>✅ Transparency & Compliance</span></div>
+    
+    <div class="form-group">
+        <label>Accreditations/Certifications</label>
+        <textarea id="ngoAccreditations" rows="3" placeholder="e.g., NGO Board Certified, KRA Exemption, ISO Certification"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Annual Reports Available</label>
+        <select id="ngoReports">
+            <option value="yes">Yes, publicly available</option>
+            <option value="internal">Internal only</option>
+            <option value="no">Not available</option>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label>Audit Status</label>
+        <input type="text" id="ngoAudit" placeholder="e.g., Audited annually by KPMG">
+    </div>
+    
+    <!-- Social Media -->
+    <div class="section-divider"><span>🌐 Online Presence</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Website URL</label>
+            <input type="url" id="ngoWebsite" placeholder="https://www.ngo.org">
+        </div>
+        <div class="form-group">
+            <label>Facebook Page</label>
+            <input type="url" id="ngoFacebook" placeholder="https://facebook.com/...">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Twitter/X Handle</label>
+            <input type="text" id="ngoTwitter" placeholder="@ngohandle">
+        </div>
+        <div class="form-group">
+            <label>Instagram Page</label>
+            <input type="url" id="ngoInstagram" placeholder="https://instagram.com/...">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>LinkedIn Page</label>
+            <input type="url" id="ngoLinkedin" placeholder="https://linkedin.com/...">
+        </div>
+        <div class="form-group">
+            <label>YouTube Channel</label>
+            <input type="url" id="ngoYoutube" placeholder="https://youtube.com/...">
+        </div>
+    </div>
+    
+    <!-- Testimonials & Stories -->
+    <div class="section-divider"><span>📖 Impact Stories</span></div>
+    
+    <div class="form-group">
+        <label>Success Stories</label>
+        <textarea id="ngoStories" rows="4" placeholder="e.g., Mary, a single mother of 3, received skills training and now runs her own business..."></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Beneficiary Testimonials</label>
+        <textarea id="ngoTestimonials" rows="4" placeholder="e.g., 'Thanks to this organization, my children can now go to school.' - James K."></textarea>
+    </div>
+    
+    <!-- Media -->
+    <div class="section-divider"><span>📹 Media & Resources</span></div>
+    
+    <div class="form-group">
+        <label>Brochures/Publications</label>
+        <input type="text" id="ngoPublications" placeholder="e.g., Annual report, Impact brochure">
+    </div>
+    
+    <div class="form-group">
+        <label>Press Mentions</label>
+        <textarea id="ngoPress" rows="3" placeholder="e.g., Featured in Daily Nation, KTN News"></textarea>
+    </div>
+    
+    <!-- Additional Information -->
+    <div class="section-divider"><span>📝 Additional Information</span></div>
+    
+    <div class="form-group">
+        <label>Upcoming Events/Fundraisers</label>
+        <textarea id="ngoEvents" rows="3" placeholder="e.g., Charity Run - June 15, 2024&#10;Annual Gala - September 20, 2024"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Volunteer Opportunities</label>
+        <textarea id="ngoVolunteerOpps" rows="3" placeholder="e.g., Teaching, Medical camps, Administration"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Urgent Needs</label>
+        <textarea id="ngoNeeds" rows="3" placeholder="e.g., School supplies, Medical equipment, Food donations"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Any Other Information</label>
+        <textarea id="ngoOther" rows="3" placeholder="Anything else we should know?"></textarea>
+    </div>
+</div>
+                
+                <!-- PORTFOLIO FORM - Complete -->
+<div id="portfolioFields" style="display: none;">
+    <!-- Basic Information -->
+    <div class="section-divider"><span>🎨 Basic Information</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label class="required">Your Full Name / Business Name</label>
+            <input type="text" id="portfolioName" placeholder="e.g., John Kimani Photography">
+        </div>
+        <div class="form-group">
+            <label>Professional Title</label>
+            <input type="text" id="portfolioTitle" placeholder="e.g., Freelance Photographer, Graphic Designer">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Year Started</label>
+            <input type="number" id="portfolioYear" placeholder="e.g., 2018" min="1900" max="2024">
+        </div>
+        <div class="form-group">
+            <label>Location/Base</label>
+            <input type="text" id="portfolioLocation" placeholder="e.g., Nairobi, Kenya">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Tagline / Professional Statement</label>
+        <input type="text" id="portfolioTagline" placeholder="e.g., Capturing Life's Beautiful Moments">
+    </div>
+    
+    <div class="form-group">
+        <label>About Me / Bio</label>
+        <textarea id="portfolioBio" rows="4" placeholder="Tell us about yourself, your background, your passion..."></textarea>
+    </div>
+    
+    <!-- Contact Information -->
+    <div class="section-divider"><span>📞 Contact Information</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label class="required">Phone Number</label>
+            <input type="tel" id="portfolioPhone" placeholder="+254 700 000 000">
+        </div>
+        <div class="form-group">
+            <label class="required">Email Address</label>
+            <input type="email" id="portfolioEmail" placeholder="your@email.com">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>WhatsApp Number</label>
+            <input type="tel" id="portfolioWhatsApp" placeholder="+254 712 345 678">
+        </div>
+        <div class="form-group">
+            <label>Alternative Phone</label>
+            <input type="tel" id="portfolioPhone2" placeholder="+254 700 000 000">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Physical Address (if applicable)</label>
+        <input type="text" id="portfolioAddress" placeholder="Street, Building, Landmark">
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>City/Town</label>
+            <input type="text" id="portfolioCity" placeholder="e.g., Nairobi">
+        </div>
+        <div class="form-group">
+            <label>Country</label>
+            <input type="text" id="portfolioCountry" placeholder="e.g., Kenya">
+        </div>
+    </div>
+    
+    <!-- Skills & Expertise -->
+    <div class="section-divider"><span>💪 Skills & Expertise</span></div>
+    
+    <div class="form-group">
+        <label>Primary Skills/Disciplines</label>
+        <select id="portfolioSkills" multiple size="5" style="height: auto;">
+            <option value="photography">Photography</option>
+            <option value="graphicdesign">Graphic Design</option>
+            <option value="webdesign">Web Design</option>
+            <option value="webdev">Web Development</option>
+            <option value="writing">Writing/Content</option>
+            <option value="illustration">Illustration</option>
+            <option value="video">Video Production</option>
+            <option value="animation">Animation</option>
+            <option value="uiux">UI/UX Design</option>
+            <option value="branding">Branding/Identity</option>
+            <option value="marketing">Digital Marketing</option>
+            <option value="consulting">Consulting</option>
+        </select>
+        <small>Hold Ctrl/Cmd to select multiple</small>
+    </div>
+    
+    <div class="form-group">
+        <label>Other Skills</label>
+        <input type="text" id="portfolioOtherSkills" placeholder="e.g., Copywriting, SEO, Social Media">
+    </div>
+    
+    <div class="form-group">
+        <label>Software/Tools Proficiency</label>
+        <textarea id="portfolioTools" rows="3" placeholder="e.g., Adobe Photoshop, Illustrator, Figma, WordPress, Canon EOS"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Languages Spoken</label>
+        <input type="text" id="portfolioLanguages" placeholder="e.g., English, Kiswahili, French">
+    </div>
+    
+    <!-- Services Offered -->
+    <div class="section-divider"><span>💼 Services Offered</span></div>
+    
+    <div class="form-group">
+        <label>Services Provided</label>
+        <textarea id="portfolioServices" rows="4" placeholder="List all services you offer...&#10;e.g., Wedding Photography, Portrait Sessions, Event Coverage, Commercial Shoots"></textarea>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Service Pricing (Range)</label>
+            <input type="text" id="portfolioPricing" placeholder="e.g., KES 5,000 - KES 50,000">
+        </div>
+        <div class="form-group">
+            <label>Payment Model</label>
+            <select id="portfolioPaymentModel">
+                <option value="">-- Select --</option>
+                <option value="hourly">Hourly Rate</option>
+                <option value="project">Project Based</option>
+                <option value="package">Package Deals</option>
+                <option value="retainer">Retainer</option>
+            </select>
+        </div>
+    </div>
+    
+    <!-- Portfolio Projects -->
+    <div class="section-divider"><span>🖼️ Portfolio Projects</span></div>
+    
+    <div class="form-group">
+        <label>Project 1 - Title</label>
+        <input type="text" id="portfolioProject1Title" placeholder="e.g., Luxury Wedding Photography">
+    </div>
+    <div class="form-group">
+        <label>Project 1 - Description</label>
+        <textarea id="portfolioProject1Desc" rows="2" placeholder="Describe this project..."></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Project 2 - Title</label>
+        <input type="text" id="portfolioProject2Title" placeholder="e.g., Corporate Branding for Safaricom">
+    </div>
+    <div class="form-group">
+        <label>Project 2 - Description</label>
+        <textarea id="portfolioProject2Desc" rows="2" placeholder="Describe this project..."></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Project 3 - Title</label>
+        <input type="text" id="portfolioProject3Title" placeholder="e.g., Website Design for Hotel">
+    </div>
+    <div class="form-group">
+        <label>Project 3 - Description</label>
+        <textarea id="portfolioProject3Desc" rows="2" placeholder="Describe this project..."></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>More Projects (briefly describe others)</label>
+        <textarea id="portfolioMoreProjects" rows="3" placeholder="List other notable projects..."></textarea>
+    </div>
+    
+    <!-- Clients -->
+    <div class="section-divider"><span>🤝 Clients</span></div>
+    
+    <div class="form-group">
+        <label>Notable Clients</label>
+        <textarea id="portfolioClients" rows="3" placeholder="e.g., Safaricom, KCB, Standard Group, Individual clients"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Client Testimonials</label>
+        <textarea id="portfolioTestimonials" rows="4" placeholder="e.g., 'John did an amazing job with our wedding photos!' - Mary and Peter&#10;'Professional and creative, highly recommended.' - Sarah Ltd"></textarea>
+    </div>
+    
+    <!-- Experience & Qualifications -->
+    <div class="section-divider"><span>📜 Experience & Qualifications</span></div>
+    
+    <div class="form-group">
+        <label>Years of Professional Experience</label>
+        <input type="text" id="portfolioExperience" placeholder="e.g., 8 years">
+    </div>
+    
+    <div class="form-group">
+        <label>Education/Training</label>
+        <textarea id="portfolioEducation" rows="3" placeholder="e.g., Bachelor of Design - University of Nairobi&#10;Certified Professional Photographer - PPK"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Certifications</label>
+        <input type="text" id="portfolioCertifications" placeholder="e.g., Adobe Certified Expert, Google Analytics Certified">
+    </div>
+    
+    <div class="form-group">
+        <label>Professional Memberships</label>
+        <input type="text" id="portfolioMemberships" placeholder="e.g., Kenya Photographers Association, Designers Kenya">
+    </div>
+    
+    <!-- Awards & Recognition -->
+    <div class="section-divider"><span>🏆 Awards & Recognition</span></div>
+    
+    <div class="form-group">
+        <label>Awards Received</label>
+        <textarea id="portfolioAwards" rows="3" placeholder="e.g., Best Wedding Photographer 2023&#10;Sanaa Award for Excellence 2022"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Publications/Features</label>
+        <textarea id="portfolioPublications" rows="3" placeholder="e.g., Featured in Vogue, Daily Nation, Business Daily"></textarea>
+    </div>
+    
+    <!-- Social Media & Online Presence -->
+    <div class="section-divider"><span>🌐 Online Presence</span></div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Portfolio Website</label>
+            <input type="url" id="portfolioWebsite" placeholder="https://www.yourportfolio.com">
+        </div>
+        <div class="form-group">
+            <label>Behance Profile</label>
+            <input type="url" id="portfolioBehance" placeholder="https://behance.net/...">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Dribbble Profile</label>
+            <input type="url" id="portfolioDribbble" placeholder="https://dribbble.com/...">
+        </div>
+        <div class="form-group">
+            <label>GitHub Profile</label>
+            <input type="url" id="portfolioGithub" placeholder="https://github.com/...">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>LinkedIn Profile</label>
+            <input type="url" id="portfolioLinkedin" placeholder="https://linkedin.com/in/...">
+        </div>
+        <div class="form-group">
+            <label>Instagram Page</label>
+            <input type="url" id="portfolioInstagram" placeholder="https://instagram.com/...">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Twitter/X Handle</label>
+            <input type="text" id="portfolioTwitter" placeholder="@yourhandle">
+        </div>
+        <div class="form-group">
+            <label>Facebook Page</label>
+            <input type="url" id="portfolioFacebook" placeholder="https://facebook.com/...">
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>YouTube Channel</label>
+            <input type="url" id="portfolioYoutube" placeholder="https://youtube.com/...">
+        </div>
+        <div class="form-group">
+            <label>TikTok Profile</label>
+            <input type="url" id="portfolioTikTok" placeholder="https://tiktok.com/...">
+        </div>
+    </div>
+    
+    <!-- Availability -->
+    <div class="section-divider"><span>📅 Availability</span></div>
+    
+    <div class="form-group">
+        <label>Current Availability</label>
+        <select id="portfolioAvailability">
+            <option value="available">Available for Work</option>
+            <option value="limited">Limited Availability</option>
+            <option value="booked">Fully Booked</option>
+            <option value="open">Open to Opportunities</option>
+        </select>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label>Preferred Work Type</label>
+            <select id="portfolioWorkType">
+                <option value="freelance">Freelance</option>
+                <option value="contract">Contract</option>
+                <option value="fulltime">Full-time</option>
+                <option value="parttime">Part-time</option>
+                <option value="remote">Remote Only</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Preferred Location</label>
+            <input type="text" id="portfolioPreferredLocation" placeholder="e.g., Nairobi, Remote">
+        </div>
+    </div>
+    
+    <!-- Payment -->
+    <div class="section-divider"><span>💰 Payment Information</span></div>
+    
+    <div class="form-group">
+        <label>Payment Methods Accepted</label>
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+            <label class="checkbox-label"><input type="checkbox" value="mpesa"> M-Pesa</label>
+            <label class="checkbox-label"><input type="checkbox" value="bank"> Bank Transfer</label>
+            <label class="checkbox-label"><input type="checkbox" value="paypal"> PayPal</label>
+            <label class="checkbox-label"><input type="checkbox" value="card"> Credit Card</label>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>M-Pesa Paybill/Till Number</label>
+        <input type="text" id="portfolioPaybill" placeholder="e.g., 123456">
+    </div>
+    
+    <!-- Additional Information -->
+    <div class="section-divider"><span>📝 Additional Information</span></div>
+    
+    <div class="form-group">
+        <label>What Makes You Unique?</label>
+        <textarea id="portfolioUnique" rows="3" placeholder="What sets you apart from others in your field?"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Preferred Industries to Work With</label>
+        <input type="text" id="portfolioIndustries" placeholder="e.g., Tech, Fashion, Non-profit, Corporate">
+    </div>
+    
+    <div class="form-group">
+        <label>Hobbies/Interests</label>
+        <input type="text" id="portfolioHobbies" placeholder="e.g., Travel, Music, Art">
+    </div>
+    
+    <div class="form-group">
+        <label>Upcoming Exhibitions/Shows</label>
+        <textarea id="portfolioExhibitions" rows="2" placeholder="e.g., Art Gallery Exhibition - June 2024"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Any Other Information</label>
+        <textarea id="portfolioOther" rows="3" placeholder="Anything else we should know?"></textarea>
+    </div>
+</div>
+                
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="prevStep()">← Back</button>
+                    <button class="btn btn-primary" onclick="nextStep()">Next: Upload Files →</button>
+                </div>
+            </div>
+            
+            <!-- Step 3: File Upload -->
+            <div class="form-section" id="step3-form">
+                <h2 class="section-title">Upload Supporting Files</h2>
+                
+                <div class="form-group">
+                    <label>Logo / Brand Assets</label>
+                    <div class="file-upload" onclick="document.getElementById('logoInput').click()">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Click to upload logo (PNG, JPG, SVG)</p>
+                        <input type="file" id="logoInput" accept="image/*" style="display: none;" onchange="handleFileSelect('logo')">
+                    </div>
+                    <div id="logoList" class="file-list"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Photos / Images</label>
+                    <div class="file-upload" onclick="document.getElementById('photosInput').click()">
+                        <i class="fas fa-images"></i>
+                        <p>Click to upload photos (Max 10)</p>
+                        <input type="file" id="photosInput" accept="image/*" multiple style="display: none;" onchange="handleFileSelect('photos')">
+                    </div>
+                    <div id="photosList" class="file-list"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Documents (optional)</label>
+                    <div class="file-upload" onclick="document.getElementById('docsInput').click()">
+                        <i class="fas fa-file-alt"></i>
+                        <p>Click to upload documents (PDF, DOC)</p>
+                        <input type="file" id="docsInput" accept=".pdf,.doc,.docx" multiple style="display: none;" onchange="handleFileSelect('docs')">
+                    </div>
+                    <div id="docsList" class="file-list"></div>
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="prevStep()">← Back</button>
+                    <button class="btn btn-primary" onclick="nextStep()">Next: Review →</button>
+                </div>
+            </div>
+            
+            <!-- Step 4: Review & Submit -->
+            <div class="form-section" id="step4-form">
+                <h2 class="section-title">Review Your Information</h2>
+                
+                <div class="review-card" id="reviewContent"></div>
+                
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="agreeTerms">
+                        I confirm that the information provided is accurate
+                    </label>
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="prevStep()">← Back</button>
+                    <button class="btn btn-success" onclick="submitForm()" id="submitBtn">
+                        <i class="fas fa-paper-plane"></i> Submit Project Brief
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Message here</span>
+    </div>
+    
+    <!-- Hidden Email Form -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+    <form id="emailForm" action="https://formsubmit.co/kaynaerotech@gmail.com" method="POST" target="hidden_iframe" style="display: none;">
+        <input type="hidden" name="_subject" value="New Website Project Brief">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="thankyou.html">
+        <input type="hidden" name="category" id="emailCategory">
+        <input type="hidden" name="details" id="emailDetails">
+        <input type="hidden" name="files" id="emailFiles">
+        <input type="hidden" name="submitted_at" id="emailTimestamp">
+    </form>
+    
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>

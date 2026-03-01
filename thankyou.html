@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | KaynaeroTech</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/thankyou.css">
+</head>
+<body>
+    <div class="card">
+        <!-- Success State -->
+        <div id="successState">
+            <div class="icon">✅</div>
+            <h1>Thank You!</h1>
+            <p>Your project brief has been received successfully. We'll review your information and get back to you within 24 hours.</p>
+            
+            <div class="email-notice">
+                <strong>📧 Confirmation Sent</strong>
+                <p style="margin-top: 0.5rem;">A copy of your submission has been sent to <strong>kaynaerotech@gmail.com</strong>. We'll contact you shortly.</p>
+            </div>
+            
+            <a href="index.html" class="btn">Submit Another Project</a>
+        </div>
+        
+        <!-- Error State -->
+        <div id="errorState" class="hidden">
+            <div class="icon icon-error">⚠️</div>
+            <h1>Oops!</h1>
+            <p>It seems you've reached this page directly. This page is only shown after successfully submitting a project brief.</p>
+            
+            <div class="error-box">
+                <strong>No form submission detected</strong>
+            </div>
+            
+            <p>You will be redirected to the form in <span id="countdown" class="countdown">5</span> seconds...</p>
+            
+            <a href="index.html" class="btn">Go to Form Now</a>
+        </div>
+    </div>
+    
+    <script src="js/thankyou.js"></script>
+</body>
+</html>
