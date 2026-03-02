@@ -264,7 +264,7 @@ function populateReview() {
     document.getElementById('reviewContent').innerHTML = html;
 }
 
-// Form submission
+// Form submission with client email capture
 function submitForm() {
     if (!document.getElementById('agreeTerms').checked) {
         showToast('Please confirm that the information is accurate', 'error');
@@ -285,7 +285,7 @@ function submitForm() {
         files: uploadedFiles
     };
     
-    // Collect details based on selected category
+    // Collect details based on selected category AND set client contact info
     if (selectedCategory === 'school') {
         formData.details = {
             name: document.getElementById('schoolName')?.value || '',
@@ -349,6 +349,12 @@ function submitForm() {
             events: document.getElementById('schoolEvents')?.value || '',
             other: document.getElementById('schoolOther')?.value || ''
         };
+        
+        // Set client contact info for email reply
+        document.getElementById('clientEmail').value = document.getElementById('schoolEmail')?.value || '';
+        document.getElementById('clientName').value = document.getElementById('schoolPrincipal')?.value || document.getElementById('schoolName')?.value || '';
+        document.getElementById('clientPhone').value = document.getElementById('schoolPhone')?.value || '';
+        document.getElementById('replytoEmail').value = document.getElementById('schoolEmail')?.value || '';
     }
     else if (selectedCategory === 'hospital') {
         formData.details = {
@@ -413,6 +419,12 @@ function submitForm() {
             events: document.getElementById('hospitalEvents')?.value || '',
             other: document.getElementById('hospitalOther')?.value || ''
         };
+        
+        // Set client contact info for email reply
+        document.getElementById('clientEmail').value = document.getElementById('hospitalEmail')?.value || '';
+        document.getElementById('clientName').value = document.getElementById('hospitalCEO')?.value || document.getElementById('hospitalName')?.value || '';
+        document.getElementById('clientPhone').value = document.getElementById('hospitalPhone')?.value || '';
+        document.getElementById('replytoEmail').value = document.getElementById('hospitalEmail')?.value || '';
     }
     else if (selectedCategory === 'church') {
         formData.details = {
@@ -469,6 +481,12 @@ function submitForm() {
             missions: document.getElementById('churchMissions')?.value || '',
             other: document.getElementById('churchOther')?.value || ''
         };
+        
+        // Set client contact info for email reply
+        document.getElementById('clientEmail').value = document.getElementById('churchEmail')?.value || '';
+        document.getElementById('clientName').value = document.getElementById('churchPastor')?.value || document.getElementById('churchName')?.value || '';
+        document.getElementById('clientPhone').value = document.getElementById('churchPhone')?.value || '';
+        document.getElementById('replytoEmail').value = document.getElementById('churchEmail')?.value || '';
     }
     else if (selectedCategory === 'hotel') {
         formData.details = {
@@ -530,6 +548,12 @@ function submitForm() {
             offers: document.getElementById('hotelOffers')?.value || '',
             other: document.getElementById('hotelOther')?.value || ''
         };
+        
+        // Set client contact info for email reply
+        document.getElementById('clientEmail').value = document.getElementById('hotelEmail')?.value || '';
+        document.getElementById('clientName').value = document.getElementById('hotelManager')?.value || document.getElementById('hotelName')?.value || '';
+        document.getElementById('clientPhone').value = document.getElementById('hotelPhone')?.value || '';
+        document.getElementById('replytoEmail').value = document.getElementById('hotelEmail')?.value || '';
     }
     else if (selectedCategory === 'restaurant') {
         formData.details = {
@@ -591,6 +615,12 @@ function submitForm() {
             offers: document.getElementById('restaurantOffers')?.value || '',
             other: document.getElementById('restaurantOther')?.value || ''
         };
+        
+        // Set client contact info for email reply
+        document.getElementById('clientEmail').value = document.getElementById('restaurantEmail')?.value || '';
+        document.getElementById('clientName').value = document.getElementById('restaurantManager')?.value || document.getElementById('restaurantName')?.value || '';
+        document.getElementById('clientPhone').value = document.getElementById('restaurantPhone')?.value || '';
+        document.getElementById('replytoEmail').value = document.getElementById('restaurantEmail')?.value || '';
     }
     else if (selectedCategory === 'business') {
         formData.details = {
@@ -651,6 +681,12 @@ function submitForm() {
             events: document.getElementById('businessEvents')?.value || '',
             other: document.getElementById('businessOther')?.value || ''
         };
+        
+        // Set client contact info for email reply
+        document.getElementById('clientEmail').value = document.getElementById('businessEmail')?.value || '';
+        document.getElementById('clientName').value = document.getElementById('businessContact')?.value || document.getElementById('businessName')?.value || '';
+        document.getElementById('clientPhone').value = document.getElementById('businessPhone')?.value || '';
+        document.getElementById('replytoEmail').value = document.getElementById('businessEmail')?.value || '';
     }
     else if (selectedCategory === 'ngo') {
         formData.details = {
@@ -719,6 +755,12 @@ function submitForm() {
             needs: document.getElementById('ngoNeeds')?.value || '',
             other: document.getElementById('ngoOther')?.value || ''
         };
+        
+        // Set client contact info for email reply
+        document.getElementById('clientEmail').value = document.getElementById('ngoEmail')?.value || '';
+        document.getElementById('clientName').value = document.getElementById('ngoDirector')?.value || document.getElementById('ngoName')?.value || '';
+        document.getElementById('clientPhone').value = document.getElementById('ngoPhone')?.value || '';
+        document.getElementById('replytoEmail').value = document.getElementById('ngoEmail')?.value || '';
     }
     else if (selectedCategory === 'portfolio') {
         formData.details = {
@@ -778,6 +820,12 @@ function submitForm() {
             exhibitions: document.getElementById('portfolioExhibitions')?.value || '',
             other: document.getElementById('portfolioOther')?.value || ''
         };
+        
+        // Set client contact info for email reply
+        document.getElementById('clientEmail').value = document.getElementById('portfolioEmail')?.value || '';
+        document.getElementById('clientName').value = document.getElementById('portfolioName')?.value || '';
+        document.getElementById('clientPhone').value = document.getElementById('portfolioPhone')?.value || '';
+        document.getElementById('replytoEmail').value = document.getElementById('portfolioEmail')?.value || '';
     }
     
     // Send email
