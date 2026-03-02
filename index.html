@@ -11,8 +11,18 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- EmailJS Library -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- EmailJS Library -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function() {
+      emailjs.init("bNMnbBM8j0LWscRS3"); // Your Public Key
+   })();
+</script>
 </head>
 <body>
     <div class="container">
@@ -93,7 +103,6 @@
                     <button class="btn btn-primary" onclick="nextStep()" id="nextToDetails" disabled>Next: Details →</button>
                 </div>
             </div>
-            
             <!-- Step 2: Details Form -->
             <div class="form-section" id="step2-form">
                 <h2 class="section-title" id="detailsTitle">Enter Your Details</h2>
@@ -3173,6 +3182,8 @@
                 </div>
             </div>
             
+           
+            
             <!-- Step 3: File Upload -->
             <div class="form-section" id="step3-form">
                 <h2 class="section-title">Upload Supporting Files</h2>
@@ -3241,25 +3252,6 @@
         <i class="fas fa-check-circle"></i>
         <span id="toastMessage">Message here</span>
     </div>
-    
-    <!-- Hidden Email Form - Updated with client info fields -->
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-    <form id="emailForm" action="https://formsubmit.co/kaynaerotech@gmail.com" method="POST" target="hidden_iframe" style="display: none;">
-    <input type="hidden" name="_subject" value="New Website Project Brief Received">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_next" value="thankyou.html">
-    <input type="hidden" name="_replyto" id="replytoEmail" value="">
-    <input type="hidden" name="_cc" value="kaynaerotech@gmail.com"> <!-- Add this line -->
-    <input type="hidden" name="_confirmation" value="Your project brief has been received. We'll contact you within 24 hours."> <!-- Optional -->
-    <input type="hidden" name="client_email" id="clientEmail" value="">
-    <input type="hidden" name="client_name" id="clientName" value="">
-    <input type="hidden" name="client_phone" id="clientPhone" value="">
-    <input type="hidden" name="category" id="emailCategory">
-    <input type="hidden" name="details" id="emailDetails">
-    <input type="hidden" name="files" id="emailFiles">
-    <input type="hidden" name="submitted_at" id="emailTimestamp">
-</form>
     
     <!-- Custom JS -->
     <script src="js/script.js"></script>
