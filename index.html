@@ -3245,19 +3245,21 @@
     <!-- Hidden Email Form - Updated with client info fields -->
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
     <form id="emailForm" action="https://formsubmit.co/kaynaerotech@gmail.com" method="POST" target="hidden_iframe" style="display: none;">
-        <input type="hidden" name="_subject" value="New Website Project Brief Received">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="thankyou.html">
-        <input type="hidden" name="_replyto" id="replytoEmail" value="">
-        <input type="hidden" name="client_email" id="clientEmail" value="">
-        <input type="hidden" name="client_name" id="clientName" value="">
-        <input type="hidden" name="client_phone" id="clientPhone" value="">
-        <input type="hidden" name="category" id="emailCategory">
-        <input type="hidden" name="details" id="emailDetails">
-        <input type="hidden" name="files" id="emailFiles">
-        <input type="hidden" name="submitted_at" id="emailTimestamp">
-    </form>
+    <input type="hidden" name="_subject" value="New Website Project Brief Received">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="thankyou.html">
+    <input type="hidden" name="_replyto" id="replytoEmail" value="">
+    <input type="hidden" name="_cc" value="kaynaerotech@gmail.com"> <!-- Add this line -->
+    <input type="hidden" name="_confirmation" value="Your project brief has been received. We'll contact you within 24 hours."> <!-- Optional -->
+    <input type="hidden" name="client_email" id="clientEmail" value="">
+    <input type="hidden" name="client_name" id="clientName" value="">
+    <input type="hidden" name="client_phone" id="clientPhone" value="">
+    <input type="hidden" name="category" id="emailCategory">
+    <input type="hidden" name="details" id="emailDetails">
+    <input type="hidden" name="files" id="emailFiles">
+    <input type="hidden" name="submitted_at" id="emailTimestamp">
+</form>
     
     <!-- Custom JS -->
     <script src="js/script.js"></script>
